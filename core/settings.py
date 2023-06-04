@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'config.apps.ConfigConfig',
     'poll.apps.PollConfig',
     'tag.apps.TagConfig',
+    'newsletter.apps.NewsletterConfig',
     'presentation.apps.PresentationConfig',
     'advertising.apps.AdvertisingConfig',
 ]
