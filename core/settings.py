@@ -21,7 +21,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'django_summernote',
+    'tinymce',
 
     'post.apps.PostConfig',
     'category.apps.CategoryConfig',
@@ -138,3 +138,20 @@ DATABASE_ROUTERS = [
     'router.db_routers.AdvertisingRouter',
     'router.db_routers.PresentationRouter',
     ]
+
+
+TINYMCE_JS_URL = 'js/tinymce.min.js'
+TINYMCE_DEFAULT_CONFIG = {
+    "height": "320px",
+    "width": "960px",
+    "menubar": "file edit view insert format tools table help",
+    "plugins": "advlist autolink lists link textarea image charmap print preview anchor searchreplace visualblocks code "
+    "fullscreen insertdatetime media table paste code help wordcount spellchecker",
+    "toolbar": "undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft "
+    "aligncenter alignright alignjustify | outdent indent |  numlist bullist checklist | forecolor "
+    "backcolor casechange permanentpen formatpainter removeformat | pagebreak | charmap emoticons | "
+    "fullscreen  preview save print | insertfile image media pageembed template link anchor codesample | "
+    "a11ycheck ltr rtl | showcomments addcomment code",
+    "custom_undo_redo_levels": 10,
+    "language": "en_US",
+}
