@@ -12,7 +12,7 @@ admin.site.register(SeriePost, SeriePostAdmin)
 
 @admin.register(SinglePost)
 class SinglePostAdmin(admin.ModelAdmin):
-    list_display = ['title', 'category', 'pub_date', 'up_date', 'author', 'lock']
+    list_display = ['title', 'pub_date', 'up_date', 'author', 'lock']
     # TODO: search items
     list_filter = ['category', 'author', 'lock', 'pub_date', 'up_date']
     fieldsets = [

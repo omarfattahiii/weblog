@@ -5,7 +5,7 @@ from tinymce import models as tinymce_models
 
 
 class SinglePost(models.Model):
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    category = models.ManyToManyField(Category)
     title = models.CharField(max_length=255, unique=True)
     slug = models.SlugField(max_length=50, unique=True)
     content = tinymce_models.HTMLField()
@@ -23,7 +23,7 @@ class SinglePost(models.Model):
         return self.title
 
 class SeriePost(models.Model):
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    category = models.ManyToManyField(Category)
     title = models.CharField(max_length=255, unique=True)
     slug = models.SlugField(max_length=50, unique=True)
     pub_date = models.DateTimeField(auto_now_add=True)
