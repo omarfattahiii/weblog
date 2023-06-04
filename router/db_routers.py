@@ -1,14 +1,14 @@
 class UsertRouter:
-    route_app_labels = ['auth', 'contenttypes', 'admin', 'sessions', 'user']
+    route_app_labels = ['auth', 'contenttypes', 'admin', 'sessions']
 
     def db_for_read(self, model, **hints):
         if model._meta.app_label in self.route_app_labels:
-            return "user"
+            return "user_db"
         return None
 
     def db_for_write(self, model, **hints):
         if model._meta.app_label in self.route_app_labels:
-            return "user"
+            return "user_db"
         return None
 
     def allow_relation(self, obj1, obj2, **hints):
@@ -18,20 +18,20 @@ class UsertRouter:
 
     def allow_migrate(self, db, app_label, model_name=None, **hints):
         if app_label in self.route_app_labels:
-            return db == "user"
+            return db == "user_db"
         return None
 
 class PostRouter:
-    route_app_labels = ['post', 'poll', 'category']
+    route_app_labels = ['post', 'poll', 'category', 'django_summernote']
 
     def db_for_read(self, model, **hints):
         if model._meta.app_label in self.route_app_labels:
-            return "post"
+            return "post_db"
         return None
 
     def db_for_write(self, model, **hints):
         if model._meta.app_label in self.route_app_labels:
-            return "post"
+            return "post_db"
         return None
 
     def allow_relation(self, obj1, obj2, **hints):
@@ -41,7 +41,7 @@ class PostRouter:
 
     def allow_migrate(self, db, app_label, model_name=None, **hints):
         if app_label in self.route_app_labels:
-            return db == "post"
+            return db == "post_db"
         return None
 
 class AdvertisingRouter:
@@ -49,12 +49,12 @@ class AdvertisingRouter:
 
     def db_for_read(self, model, **hints):
         if model._meta.app_label in self.route_app_labels:
-            return "advertising"
+            return "advertising_db"
         return None
 
     def db_for_write(self, model, **hints):
         if model._meta.app_label in self.route_app_labels:
-            return "advertising"
+            return "advertising_db"
         return None
 
     def allow_relation(self, obj1, obj2, **hints):
@@ -64,7 +64,7 @@ class AdvertisingRouter:
 
     def allow_migrate(self, db, app_label, model_name=None, **hints):
         if app_label in self.route_app_labels:
-            return db == "advertising"
+            return db == "advertising_db"
         return None
 
 class PresentationRouter:
@@ -72,12 +72,12 @@ class PresentationRouter:
 
     def db_for_read(self, model, **hints):
         if model._meta.app_label in self.route_app_labels:
-            return "presentation"
+            return "presentation_db"
         return None
 
     def db_for_write(self, model, **hints):
         if model._meta.app_label in self.route_app_labels:
-            return "presentation"
+            return "presentation_db"
         return None
 
     def allow_relation(self, obj1, obj2, **hints):
@@ -87,5 +87,5 @@ class PresentationRouter:
 
     def allow_migrate(self, db, app_label, model_name=None, **hints):
         if app_label in self.route_app_labels:
-            return db == "presentation"
+            return db == "presentation_db"
         return None
