@@ -21,10 +21,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'django_summernote',
+
     'post.apps.PostConfig',
     'category.apps.CategoryConfig',
     'config.apps.ConfigConfig',
-    'user.apps.UserConfig',
     'poll.apps.PollConfig',
     'presentation.apps.PresentationConfig',
     'advertising.apps.AdvertisingConfig',
@@ -66,19 +67,19 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 DATABASES = {
     'default': {},
-    'post': {
+    'post_db': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db/post.db.sqlite3',
     },
-    'user': {
+    'user_db': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db/user.db.sqlite3',
     },
-    'advertising': {
+    'advertising_db': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db/ad.db.sqlite3',
     },
-    'presentation': {
+    'presentation_db': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db/pres.db.sqlite3',
     }
