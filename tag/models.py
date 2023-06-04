@@ -1,3 +1,6 @@
+from django.db import models
+
+
 class Tags(models.Model):
     title = models.CharField(max_length=30, unique=True)
     slug = models.SlugField(max_length=50, unique=True)
