@@ -7,7 +7,7 @@ class ParentCategory(models.Model):
 
     class Meta:
         verbose_name = "Category"
-        verbose_name_plural = "Categories"
+        verbose_name_plural = "Categorie's"
 
     def __str__(self):
         return self.title
@@ -19,7 +19,7 @@ class Category(models.Model):
 
     class Meta:
         verbose_name = "Category"
-        verbose_name_plural = "Categories"
+        verbose_name_plural = "Categorie's"
 
     def __str__(self):
         return self.title
