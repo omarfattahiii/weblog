@@ -64,25 +64,11 @@ TEMPLATES = [
 WSGI_APPLICATION = 'core.wsgi.application'
 
 
-
 DATABASES = {
-    'default': {},
-    'post_db': {
+    'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db/post.db.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     },
-    'user_db': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db/user.db.sqlite3',
-    },
-    'advertising_db': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db/ad.db.sqlite3',
-    },
-    'presentation_db': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db/pres.db.sqlite3',
-    }
 }
 
 
@@ -132,17 +118,9 @@ EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-DATABASE_ROUTERS = [
-    'router.db_routers.UsertRouter',
-    'router.db_routers.PostRouter',
-    'router.db_routers.AdvertisingRouter',
-    'router.db_routers.PresentationRouter',
-    ]
 
-
-TINYMCE_JS_URL = 'js/tinymce.min.js'
 TINYMCE_DEFAULT_CONFIG = {
-    "height": "320px",
+    "height": "500px",
     "width": "960px",
     "menubar": "file edit view insert format tools table help",
     "plugins": "advlist autolink lists link textarea image charmap print preview anchor searchreplace visualblocks code "

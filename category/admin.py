@@ -1,5 +1,11 @@
 from django.contrib import admin
 from .models import ParentCategory, Category
 
-admin.site.register(ParentCategory)
-admin.site.register(Category)
+class CategoryInline(admin.TabularInline):
+    model = Category
+
+class ParentCategoryAdmin(admin.ModelAdmin):
+    list_display = ['title', 'slug']
+    inlines = [CategoryInline]
+
+admin.site.register(ParentCategory, ParentCategoryAdmin)
