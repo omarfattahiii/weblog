@@ -24,6 +24,9 @@ INSTALLED_APPS = [
     'post.apps.PostConfig',
     'config.apps.ConfigConfig',
     'user.apps.UserConfig',
+    'poll.apps.PollConfig',
+    'presentation.apps.PresentationConfig',
+    'advertising.apps.AdvertisingConfig',
 ]
 
 MIDDLEWARE = [
@@ -64,19 +67,19 @@ DATABASES = {
     'default': {},
     'post': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'post.db.sqlite3',
+        'NAME': BASE_DIR / 'db/post.db.sqlite3',
     },
     'user': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'user.db.sqlite3',
+        'NAME': BASE_DIR / 'db/user.db.sqlite3',
     },
     'advertising': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'ad.db.sqlite3',
+        'NAME': BASE_DIR / 'db/ad.db.sqlite3',
     },
     'presentation': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'pres.db.sqlite3',
+        'NAME': BASE_DIR / 'db/pres.db.sqlite3',
     }
 }
 
@@ -126,3 +129,10 @@ EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+DATABASE_ROUTERS = [
+    'router.db_routers.UsertRouter',
+    'router.db_routers.PostRouter',
+    'router.db_routers.AdvertisingRouter',
+    'router.db_routers.PresentationRouter',
+    ]
