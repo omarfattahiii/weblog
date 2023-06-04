@@ -22,7 +22,7 @@ class UsertRouter:
         return None
 
 class PostRouter:
-    route_app_labels = ['post', 'poll']
+    route_app_labels = ['post', 'poll', 'category']
 
     def db_for_read(self, model, **hints):
         if model._meta.app_label in self.route_app_labels:
