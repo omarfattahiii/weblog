@@ -1,10 +1,24 @@
+{% load static %}
+
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="fa" dir="rtl">
     <head>
         <meta charset="utf-8">
-        <title></title>
+        <meta name="description" content="{{ site.site_description }}">
+        <meta name="keywords" content="{{ site_tags }}">
+        <meta name="author" content="{{ site.site_author }}">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="revised" content="{{ site.site_update }}">
+        <title>{{ site.site_title }} | {% block title %}{% endblock title %}</title>
+        {% block header_src %}{% endblock header_src %}
     </head>
     <body>
+        {% include 'include/header.html' %}
 
+        {% block content %}{% endblock content %}
+
+        {% include 'include/footer.html' %}
+
+        {% block footer_src %}{% endblock footer_src %}
     </body>
 </html>
