@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class Person(models.Model):
+class Email(models.Model):
     email = models.CharField(max_length=50, unique=True)
 
     class Meta:
