@@ -23,7 +23,7 @@ INSTALLED_APPS = [
 
     'post.apps.PostConfig',
     'config.apps.ConfigConfig',
-    'auth.apps.AuthConfig',
+    'user.apps.UserConfig',
 ]
 
 MIDDLEWARE = [
@@ -109,7 +109,7 @@ USE_TZ = True
 
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 # STATIC_ROOT = 'static'
 
 MEDIA_URL = 'media/'
