@@ -64,19 +64,19 @@ DATABASES = {
     'default': {},
     'post': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'post.sqlite3',
+        'NAME': BASE_DIR / 'post.db.sqlite3',
     },
-    'auth': {
+    'user': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'auth.sqlite3',
+        'NAME': BASE_DIR / 'user.db.sqlite3',
     },
     'advertising': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'ad.sqlite3',
+        'NAME': BASE_DIR / 'ad.db.sqlite3',
     },
     'presentation': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'pres.sqlite3',
+        'NAME': BASE_DIR / 'pres.db.sqlite3',
     }
 }
 
