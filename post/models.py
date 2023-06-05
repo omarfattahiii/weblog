@@ -50,7 +50,7 @@ class SeriePost(models.Model):
 
 class SeriePostPart(models.Model):
     seriepost = models.ForeignKey('SeriePost', on_delete=models.CASCADE)
-    part = models.IntegerField(unique=True)
+    part = models.IntegerField()
     title = title = models.CharField(max_length=255, unique=True)
     content = tinymce_models.HTMLField()
     pub_date = models.DateTimeField(auto_now_add=True)

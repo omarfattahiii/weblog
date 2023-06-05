@@ -3,4 +3,7 @@
 {% block title %}تک پست ها{% endblock title %}
 
 {% block content %}
+{% for i in  single_posts_randomly %}
+{{ i.title }}<br>
+{% endfor %}
 {% endblock content %}

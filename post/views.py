@@ -24,15 +24,6 @@ def single_posts_detail(request, pk):
 
     return render(request, template_name, context)
 
-def random_single_posts(request):
-    single = SinglePost.objects.filter(is_published=True).order_by("-up_date", "-pub_date")
-    serie = SeriePost.objects.filter(is_published=True).order_by("-up_date", "-pub_date")
-    single_randomly = random.choice(single)
-    serie_randomly = random.choice(serie)
-    context = {'single_randomly': single_randomly, 'serie_randomly': serie_randomly}
-    template_name = 'layout.html'
-
-    return render(request, template_name, context)
 
 def serie_posts(request):
     objects = SeriePost.objects.filter(is_published=True).order_by("-up_date", "-pub_date")
