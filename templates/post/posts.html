@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+
+{% block title %}پست ها{% endblock title %}
+
+{% block content %}
+<h1>سریالی</h1>
+{% for object in serie %}
+{{ object.title }}
+{% endfor %}
+
+<hr>
+
+<h1>تکی</h1>
+{% for object in single %}
+{{ object.title }}
+{% endfor %}
+{% endblock content %}
