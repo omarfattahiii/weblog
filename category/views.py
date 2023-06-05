@@ -1,3 +1,10 @@
 from django.shortcuts import render
+from .models import ParentCategory
 
-# Create your views here.
+
+def parent_category(request):
+    objects = ParentCategory.objects.all()
+    context = {'objects': objects}
+    template_name = 'category/parent_categories.html'
+
+    return render(request, template_name, context)

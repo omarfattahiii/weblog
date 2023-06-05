@@ -9,6 +9,10 @@ urlpatterns = [
 
     path('', include('config.urls')),
     path('posts/', include('post.urls')),
+    path('categories/', include('category.urls')),
+    path('polls/', include('poll.urls')),
+    path('advertisings/', include('advertising.urls')),
+    path('presentations/', include('presentation.urls')),
 
     path('tinymce/', include('tinymce.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
