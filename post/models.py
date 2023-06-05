@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from django.contrib.auth.models import User
 from category.models import Category
 from tag.models import Tags
@@ -24,6 +25,9 @@ class SinglePost(models.Model):
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+        return reverse("post:single_posts_detail", kwargs={'pk':self.pk})
+
 class SeriePost(models.Model):
     category = models.ManyToManyField(Category)
     title = models.CharField(max_length=255, unique=True)
@@ -40,6 +44,10 @@ class SeriePost(models.Model):
 
     def __str__(self):
         return self.title
+        
+    def get_absolute_url(self):
+        return reverse("post:serie_posts_detail", kwargs={'pk':self.pk})
+
 
 class SeriePostPart(models.Model):
     seriepost = models.ForeignKey('SeriePost', on_delete=models.CASCADE)
