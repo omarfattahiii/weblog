@@ -13,9 +13,8 @@ class SinglePost(models.Model):
     content = tinymce_models.HTMLField()
     pub_date = models.DateTimeField(auto_now_add=True)
     up_date = models.DateTimeField(auto_now=True)
-    # TODO: comment field
     author = models.ForeignKey(User, default=True, on_delete=models.CASCADE)
-    lock = models.BooleanField(default=False)
+    is_published = models.BooleanField(default=True)
     tag = models.ManyToManyField(Tags)
 
     class Meta:
@@ -26,7 +25,7 @@ class SinglePost(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse("post:single_posts_detail", kwargs={'pk':self.pk})
+        return reverse("post:single_posts_detail", kwargs={'slug': self.slug})
 
 class SeriePost(models.Model):
     category = models.ManyToManyField(Category)
@@ -35,7 +34,7 @@ class SeriePost(models.Model):
     pub_date = models.DateTimeField(auto_now_add=True)
     up_date = models.DateTimeField(auto_now=True)
     author = models.ForeignKey(User, default=True, on_delete=models.CASCADE)
-    lock = models.BooleanField(default=False)
+    is_published = models.BooleanField(default=True)
     tag = models.ManyToManyField(Tags)
 
     class Meta:
@@ -44,9 +43,9 @@ class SeriePost(models.Model):
 
     def __str__(self):
         return self.title
-        
+
     def get_absolute_url(self):
-        return reverse("post:serie_posts_detail", kwargs={'pk':self.pk})
+        return reverse("post:serie_posts_detail", kwargs={'slug': self.slug})
 
 
 class SeriePostPart(models.Model):
@@ -56,7 +55,7 @@ class SeriePostPart(models.Model):
     content = tinymce_models.HTMLField()
     pub_date = models.DateTimeField(auto_now_add=True)
     up_date = models.DateTimeField(auto_now=True)
-    lock = models.BooleanField(default=False)
+    is_published = models.BooleanField(default=True)
 
     class Meta:
         verbose_name = "Seire Post Part"
