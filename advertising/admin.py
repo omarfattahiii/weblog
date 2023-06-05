@@ -4,5 +4,6 @@ from .models import Advertising
 
 @admin.register(Advertising)
 class AdvertisingAdmin(admin.ModelAdmin):
-        list_disply = ['title', 'category', 'slug', 'lock']
-        search_list = ['title', 'content']
+        list_display = ['title', 'slug', 'pub_date', 'up_date', 'author', 'lock']
+        list_filter = ['author', 'lock', 'pub_date', 'up_date']
+        prepopulated_fields = {'slug': ['title']}
