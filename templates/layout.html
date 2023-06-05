@@ -11,8 +11,9 @@
         <meta name="revised" content="2023/05/06">
         {% block meta_tag %}{% endblock meta_tag %}
         <link rel="icon" href="{% static 'favicon.ico' %}">
-        <title>وراسیوس | {% block title %}{% endblock title %}</title>
+        <link rel="stylesheet" href="{% static 'css/pure-min.css' %}">
         {% block header_src %}{% endblock header_src %}
+        <title>وراسیوس | {% block title %}{% endblock title %}</title>
     </head>
     <body>
         {% include 'include/header.html' %}
