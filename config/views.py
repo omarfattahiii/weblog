@@ -8,10 +8,10 @@ def index(request):
 
 def about(request):
     context = {}
-    template_name = 'about.html'
+    template_name = 'config/about.html'
     return render(request, template_name, context)
 
 def contact(request):
     context = {}
-    template_name = 'contact.html'
+    template_name = 'config/contact.html'
     return render(request, template_name, context)
