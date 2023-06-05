@@ -1,16 +1,17 @@
 from django.shortcuts import render, get_object_or_404
+import random
 from .models import SinglePost, SeriePost
 
 def posts(request):
-    single = SinglePost.objects.all().order_by("-up_date", "-pub_date")
-    serie = SeriePost.objects.all().order_by("-up_date", "-pub_date")
+    single = SinglePost.objects.filter(is_published=True).order_by("-up_date", "-pub_date")
+    serie = SeriePost.objects.filter(is_published=True).order_by("-up_date", "-pub_date")
     context = {'single': single, 'serie': serie}
     template_name = 'post/posts.html'
 
     return render(request, template_name, context)
 
 def single_posts(request):
-    objects = SinglePost.objects.all().order_by("-up_date", "-pub_date")
+    objects = SinglePost.objects.filter(is_published=True).order_by("-up_date", "-pub_date")
     context = {'objects': objects}
     template_name = 'post/single_posts.html'
 
@@ -23,8 +24,18 @@ def single_posts_detail(request, pk):
 
     return render(request, template_name, context)
 
+def random_single_posts(request):
+    single = SinglePost.objects.filter(is_published=True).order_by("-up_date", "-pub_date")
+    serie = SeriePost.objects.filter(is_published=True).order_by("-up_date", "-pub_date")
+    single_randomly = random.choice(single)
+    serie_randomly = random.choice(serie)
+    context = {'single_randomly': single_randomly, 'serie_randomly': serie_randomly}
+    template_name = 'layout.html'
+
+    return render(request, template_name, context)
+
 def serie_posts(request):
-    objects = SeriePost.objects.all().order_by("-up_date", "-pub_date")
+    objects = SeriePost.objects.filter(is_published=True).order_by("-up_date", "-pub_date")
     context = {'objects': objects}
     template_name = 'post/serie_posts.html'
 
