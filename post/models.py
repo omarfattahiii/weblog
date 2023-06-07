@@ -1,4 +1,6 @@
 from django.db import models
+from django.contrib.contenttypes.fields import GenericRelation
+from comment.models import Comment
 from django.urls import reverse
 from django.contrib.auth.models import User
 from category.models import Category
@@ -16,6 +18,7 @@ class SinglePost(models.Model):
     author = models.ForeignKey(User, default=True, on_delete=models.CASCADE)
     is_published = models.BooleanField(default=True)
     tag = models.ManyToManyField(Tags)
+    comments = GenericRelation(Comment)
 
     class Meta:
         verbose_name = "Single Post"
@@ -56,6 +59,7 @@ class SeriePostPart(models.Model):
     pub_date = models.DateTimeField(auto_now_add=True)
     up_date = models.DateTimeField(auto_now=True)
     is_published = models.BooleanField(default=True)
+    comments = GenericRelation(Comment)
 
     class Meta:
         verbose_name = "Seire Post Part"

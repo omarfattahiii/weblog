@@ -14,6 +14,22 @@ ALLOWED_HOSTS = []
 
 SITE_ID = 1
 
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'APP': {
+            'client_id': '123',
+            'secret': '456',
+            'key': ''
+        }
+    }
+}
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -25,13 +41,18 @@ INSTALLED_APPS = [
     'django.contrib.sitemaps',
 
     'tinymce',
+    'comment',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
 
     'post.apps.PostConfig',
     'category.apps.CategoryConfig',
     'config.apps.ConfigConfig',
     'poll.apps.PollConfig',
+    'subscriber.apps.SubscriberConfig',
     'tag.apps.TagConfig',
-    'newsletter.apps.NewsletterConfig',
     'presentation.apps.PresentationConfig',
     'advertising.apps.AdvertisingConfig',
 ]
@@ -61,6 +82,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.request',
             ],
         },
     },
@@ -108,7 +130,7 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 # STATIC_ROOT = 'static'
 
-MEDIA_URL = 'media/'
+MEDIA_URL = '/media/'
 MEDIA_ROOT = 'media'
 
 

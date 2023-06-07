@@ -1,23 +1,24 @@
-{% load static %}
+{% load weblog_config %}
 {% load random_posts %}
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
     <head>
         <meta charset="utf-8">
-        <meta name="description" content="وبلاگ وراسیوس، وبلاگی با تابعیت از جامعه آزاد نرم افزاری، محتوا های حوضه کامپیوتر و برنامه نویسی">
-        <meta name="keywords" content="programming, coding, programming languages, python, django, web, internet, site, website, وراسیوس، برنامه نویسی، کد نویسی، زبان برنامه نویسی، مطالب برنامه نویسی، پست برنامه نویسی، وب، وبلاگ، سایت، وبسایت، جنگو، پایتون, voracious">
-        <meta name="author" content="عمر فتاحی, Omar Fattahi">
+        <meta name="description" content="{% meta_description %}">
+        <meta name="keywords" content="{% meta_keywords %}">
+        <meta name="author" content="{% meta_author %}">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="revised" content="2023/05/06">
+        <meta name="revised" content="{% meta_revised %}">
         {% block meta_tag %}{% endblock meta_tag %}
-        <link rel="icon" href="{% static 'favicon.ico' %}">
+        <link rel="icon" href="/media/{% icon %}">
         <link rel="stylesheet" href="{% static 'assets/css/pure-min.css' %}">
         <link rel="stylesheet" href="{% static 'assets/css/layout.css' %}">
         <link rel="stylesheet" href="{% static 'assets/css/header.css' %}">
         <link rel="stylesheet" href="{% static 'assets/css/footer.css' %}">
         {% block header_src %}{% endblock header_src %}
-        <title>وراسیوس | {% block title %}{% endblock title %}</title>
+        <title>{% site_title %} | {% block title %}{% endblock title %}</title>
     </head>
     <body>
         {% include 'include/header.html' %}
