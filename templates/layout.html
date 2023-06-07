@@ -12,7 +12,10 @@
         <meta name="revised" content="2023/05/06">
         {% block meta_tag %}{% endblock meta_tag %}
         <link rel="icon" href="{% static 'favicon.ico' %}">
-        <link rel="stylesheet" href="{% static 'css/pure-min.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/pure-min.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/layout.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/header.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/footer.css' %}">
         {% block header_src %}{% endblock header_src %}
         <title>وراسیوس | {% block title %}{% endblock title %}</title>
     </head>
@@ -27,8 +30,10 @@
             {% random_serie_posts %}
         </div>
 
-        {% block content %}
-        {% endblock content %}
+        <div class="content">
+            {% block content %}
+            {% endblock content %}
+        </div>
 
         {% include 'include/footer.html' %}
 

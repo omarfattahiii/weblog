@@ -1,0 +1,18 @@
+@font-face {
+    font-family: 'Ubuntu', 'Vazir FD-WOL', 'Noto Sans';
+    src: url('assets/fnts/NotoSans-Regular.ttf');
+    src: url('assets/fnts/Ubuntu-Regular.ttf');
+    src: url('assets/fnts/Vazir-FD-WOL.ttf');
+}
+
+* {
+    font-family: 'Vazir FD-WOL';
+}
+
+.content {
+    margin: 0 auto;
+    padding: 0 2em;
+    max-width: 800px;
+    margin-bottom: 50px;
+    line-height: 1.6em;
+}
