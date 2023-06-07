@@ -53,4 +53,4 @@ try:
         return favicon
 
 except Exception:
-    print(Exception)
+    raise Exception

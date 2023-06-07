@@ -1,6 +1,24 @@
 {% extends 'layout.html' %}
+{% load comment_tags %}
 
 {% block title %}تک پست | {{ object.title }}{% endblock title %}
 
 {% block content %}
+<main class="" id="single-post-detail">
+    <section id="info">
+        <h1 id="title" style="color: blue;">{{ object.title }}</h1>
+        <p>نوشته شده ی <time style="color: green;">{{ object.pub_date }}</time></p>
+        <p>بروز شده ی <time style="color: pink;">{{ object.up_date }}</time></p>
+        <p>در دسته ی <span>{% for category in object.category.all %} <p style="color: red;">{{ category.title }}</p> {% endfor %}</span></p>
+        <p>در دسته تگهای <span>{% for tag in object.tag.all %} <p style="color: yellow;">{{ tag.title }}</p> {% endfor %}</span></p>
+
+        <p>نوشته ی <span style="color: brown;">{{ object.author }}</span></p>
+
+        <article class="" id="artice">
+            {{ object.content|safe }}
+        </article>
+        {% render_comments object request %}
+    </section>
+
+</main>
 {% endblock content %}

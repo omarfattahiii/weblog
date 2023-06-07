@@ -11,7 +11,7 @@ from tinymce import models as tinymce_models
 class SinglePost(models.Model):
     category = models.ManyToManyField(Category)
     title = models.CharField(max_length=255, unique=True)
-    slug = models.SlugField(max_length=50, unique=True)
+    slug = models.SlugField(max_length=255, unique=True)
     content = tinymce_models.HTMLField()
     pub_date = models.DateTimeField(auto_now_add=True)
     up_date = models.DateTimeField(auto_now=True)
@@ -33,7 +33,7 @@ class SinglePost(models.Model):
 class SeriePost(models.Model):
     category = models.ManyToManyField(Category)
     title = models.CharField(max_length=255, unique=True)
-    slug = models.SlugField(max_length=50, unique=True)
+    slug = models.SlugField(max_length=255, unique=True)
     pub_date = models.DateTimeField(auto_now_add=True)
     up_date = models.DateTimeField(auto_now=True)
     author = models.ForeignKey(User, default=True, on_delete=models.CASCADE)
@@ -55,10 +55,12 @@ class SeriePostPart(models.Model):
     seriepost = models.ForeignKey('SeriePost', on_delete=models.CASCADE)
     part = models.IntegerField()
     title = title = models.CharField(max_length=255, unique=True)
+    slug = models.SlugField(max_length=255, unique=True)
     content = tinymce_models.HTMLField()
     pub_date = models.DateTimeField(auto_now_add=True)
     up_date = models.DateTimeField(auto_now=True)
     is_published = models.BooleanField(default=True)
+    author = models.ForeignKey(User, default=True, on_delete=models.CASCADE)
     comments = GenericRelation(Comment)
 
     class Meta:

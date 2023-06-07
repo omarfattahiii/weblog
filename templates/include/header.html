@@ -1,28 +1,21 @@
 {% load static %}
 
-            <ul class="pure-menu-list">
-                <li class="pure-menu-item"><a href="{% url 'post:posts' %}" class="pure-menu-link">پست ها</a></li>
-                <li class="pure-menu-item"><a href="{% url 'post:single_posts' %}" class="pure-menu-link">تک پست ها</a></li>
-                <li class="pure-menu-item"><a href="{% url 'post:serie_posts' %}" class="pure-menu-link">پست سریالی ها</a></li>
-                <li class="pure-menu-item"><a href="{% url 'category:parent_categories' %}" class="pure-menu-link">دسته بندی ها</a></li>
-                <li class="pure-menu-item"><a href="{% url 'poll:polls' %}" class="pure-menu-link">نظر سنجی ها</a></li>
-                <li class="pure-menu-item menu-item-divided pure-menu-selected">
-                    <a href="#" class="pure-menu-link">معرفی</a>
-                </li>
-                <li class="pure-menu-item"><a href="{% url 'advertising:advertisings' %}" class="pure-menu-link">تبلیغات</a></li>
-                <li class="pure-menu-item"><a href="{% url 'presentation:presentations' %}" class="pure-menu-link">معرفی دیگران</a></li>
-
-                {% if request.user.is_authenticated %}
-                <li class="pure-menu-item menu-item-divided pure-menu-selected">
-                    <a href="#" class="pure-menu-link">مدیریت</a>
-                </li>
-                <li class="pure-menu-item"><a href="/admin/" class="pure-menu-link">مدیریت سایت</a></li>
-                {% endif %}
-
-                <li class="pure-menu-item menu-item-divided pure-menu-selected">
-                    <a href="#" class="pure-menu-link">وبلاگ</a>
-                </li>
-
-                <li class="pure-menu-item"><a href="{% url 'config:contact' %}" class="pure-menu-link">ارتباط</a></li>
-                <li class="pure-menu-item"><a href="{% url 'config:about' %}" class="pure-menu-link">معرفی وبلاگ</a></li>
-            </ul>
+<ul class="pure-menu-list">
+    <li class="pure-menu-item"><a href="{% url 'post:posts' %}" class="pure-menu-link">پست ها</a></li>
+    <li class="pure-menu-item"><a href="{% url 'category:parent_categories' %}" class="pure-menu-link">دسته بندی ها</a></li>
+    <li class="pure-menu-item"><a href="{% url 'poll:polls' %}" class="pure-menu-link">نظر سنجی ها</a></li>
+    <li class="pure-menu-item"><a href="{% url 'advertising:advertisings' %}" class="pure-menu-link">تبلیغات</a></li>
+    <li class="pure-menu-item"><a href="{% url 'presentation:presentations' %}" class="pure-menu-link">معرفی دیگران</a></li>
+    {% if request.user.is_superuser %}
+    <li class="pure-menu-item"><a href="/admin/" target="_blank" class="pure-menu-link">مدیریت سایت</a></li>
+    {% endif %}
+    <li class="pure-menu-item"><a href="{% url 'config:contact' %}" class="pure-menu-link">ارتباط</a></li>
+    <li class="pure-menu-item"><a href="{% url 'config:about' %}" class="pure-menu-link">معرفی وبلاگ</a></li>
+    {% if request.user.is_authenticated %}
+    <li class="pure-menu-item"><a href="{% if request.user.is_superuser %}/admin/logout/{% else %}#{% endif %}" class="pure-menu-link">خروج از حساب</a></li>
+    {% else %}
+    <li class="pure-menu-item"><a href="#" class="pure-menu-link">ورود به حساب</a></li>
+    <li class="pure-menu-item"><a href="#" class="pure-menu-link">ثبت یک حساب</a></li>
+    {% endif %}
+</ul>
+<hr>

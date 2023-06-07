@@ -9,4 +9,5 @@ urlpatterns = [
     path('single/<slug:slug>/', views.single_posts_detail, name="single_posts_detail"),
     path('serie/', views.serie_posts, name="serie_posts"),
     path('serie/<slug:slug>/', views.serie_posts_detail, name="serie_posts_detail"),
+    path('serie/part/<slug:slug>/', views.serie_posts_parts_detail, name="serie_posts_parts_detail"),
 ]

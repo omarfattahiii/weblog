@@ -3,15 +3,29 @@
 {% block title %}پست ها{% endblock title %}
 
 {% block content %}
-<h1>سریالی</h1>
-{% for object in serie %}
-{{ object.title }}<br>
-{% endfor %}
 
-<hr>
+<div class="" id="single-posts">
+    <h1>پست های تکی</h1>
+    {% if single %}
+            {% for object in single %}
+                <a href="{% url 'post:single_posts_detail' object.slug %}">{{ object.title }}</a>
+                <br>
+            {% endfor %}
+        {% else %}
+        <p>پستی وجود ندارد</p>
+    {% endif %}
+</div>
 
-<h1>تکی</h1>
-{% for object in single %}
-{{ object.title }}<br>
-{% endfor %}
+<div class="" id="serie-posts">
+    <h1>پست های سریالی</h1>
+    {% if serie %}
+            {% for object in serie %}
+            <a href="{% url 'post:serie_posts_detail' object.slug %}">{{ object.title }}</a>
+            <br>
+            {% endfor %}
+        {% else %}
+        <p>پستی وجود ندارد</p>
+    {% endif %}
+</div>
+
 {% endblock content %}

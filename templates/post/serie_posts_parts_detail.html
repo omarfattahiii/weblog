@@ -1,4 +1,5 @@
 {% extends 'layout.html' %}
+{% load comment_tags %}
 
 {% block title %}پست سریالی | {{ object.title }}{% endblock title %}
 
@@ -11,15 +12,11 @@
 
         <p>نوشته ی <span>{{ object.author }}</span></p>
 
-        <p>قسمت ها</p>
-        {% for part in object_parts %}
-            <p>نام :</p>
-            <a href="{% url 'post:serie_posts_parts_detail' part.slug %}"><p>{{ part.title }}</p></a>
-            <p>شماره قسمت: </p>
-            <p>{{ part.part }}</p>
-            <br>
-            <br>
-        {% endfor %}
+        <article class="">
+            {{ object.content|safe }}
+        </article>
+
+        {% render_comments object request %}
     </section>
 
 </main>
