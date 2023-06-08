@@ -1,4 +1,5 @@
 .footer {
-    text-align: center;
-    font-family: 'consolas';
+  bottom: 0;
+  width: 100%;
+  text-align: center;  
 }

@@ -3,7 +3,7 @@
 {% load weblog_config %}
 
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="fa" dir="rtl" data-theme="dark">
     <head>
         <meta charset="utf-8">
         <meta name="description" content="{% meta_description %}">
@@ -13,22 +13,26 @@
         <meta name="revised" content="{% meta_revised %}">
         {% block meta_tag %}{% endblock meta_tag %}
         <link rel="icon" href="/media/{% icon %}">
-        <link rel="stylesheet" href="{% static 'assets/css/pure-min.css' %}">
         <link rel="stylesheet" href="{% static 'assets/css/layout.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/pico.min.css' %}">
         <link rel="stylesheet" href="{% static 'assets/css/header.css' %}">
         <link rel="stylesheet" href="{% static 'assets/css/footer.css' %}">
         {% block header_src %}{% endblock header_src %}
         <title>{% site_title %} | {% block title %}{% endblock title %}</title>
     </head>
     <body>
-        {% include 'include/header.html' %}
+        <div class="container">
+            {% include 'include/header.html' %}
+        </div>
 
-        <div class="content">
+        <div class="container">
             {% block content %}
             {% endblock content %}
         </div>
 
-        {% include 'include/footer.html' %}
+        <div class="container">
+            {% include 'include/footer.html' %}
+        </div>
 
         {% block footer_src %}{% endblock footer_src %}
     </body>

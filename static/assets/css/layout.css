@@ -1,18 +1,29 @@
-@font-face {
-    font-family: 'Ubuntu', 'Vazir FD-WOL', 'Noto Sans';
-    src: url('assets/fnts/NotoSans-Regular.ttf');
-    src: url('assets/fnts/Ubuntu-Regular.ttf');
-    src: url('assets/fnts/Vazir-FD-WOL.ttf');
-}
-
 * {
-    font-family: 'Vazir FD-WOL', '';
+    font-family: 'Vazir FD-WOL' !important;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }
 
-/* .content {
-    margin: 0 auto;
-    padding: 0 2em;
-    max-width: 800px;
-    margin-bottom: 50px;
-    line-height: 1.6em;
-} */
+*::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #11191F;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #333;
+}
