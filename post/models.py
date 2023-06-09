@@ -5,14 +5,14 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 from category.models import Category
 from tag.models import Tags
-from tinymce import models as tinymce_models
+from ckeditor.fields import RichTextField
 
 
 class SinglePost(models.Model):
     category = models.ManyToManyField(Category)
     title = models.CharField(max_length=255, unique=True)
     slug = models.SlugField(max_length=255, unique=True)
-    content = tinymce_models.HTMLField()
+    content = RichTextField()
     pub_date = models.DateTimeField(auto_now_add=True)
     up_date = models.DateTimeField(auto_now=True)
     author = models.ForeignKey(User, default=True, on_delete=models.CASCADE)
@@ -56,7 +56,7 @@ class SeriePostPart(models.Model):
     part = models.IntegerField()
     title = title = models.CharField(max_length=255, unique=True)
     slug = models.SlugField(max_length=255, unique=True)
-    content = tinymce_models.HTMLField()
+    content = RichTextField()
     pub_date = models.DateTimeField(auto_now_add=True)
     up_date = models.DateTimeField(auto_now=True)
     is_published = models.BooleanField(default=True)

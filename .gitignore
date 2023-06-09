@@ -60,10 +60,10 @@ cover/
 migrations/
 __pycatch__/
 static/admin/
-static/summernote/
 local_settings.py
 *.sqlite3
 *.sqlite3-journal
+static/ckeditor/
 
 # Flask stuff:
 instance/
