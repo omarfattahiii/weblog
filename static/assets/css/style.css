@@ -149,6 +149,14 @@ a:hover {
   clear: both;
 }
 
+pre {
+	direction: ltr;
+}
+
+code {
+	font-family: consolas !important;
+}
+
 footer {
 	border-top: 3px solid #CCC;
 	border-bottom: 3px solid #CCC;

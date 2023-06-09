@@ -14,6 +14,7 @@
         {% block meta_tag %}{% endblock meta_tag %}
         <link rel="icon" href="/media/{% icon %}">
         <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
         {% block header_src %}{% endblock header_src %}
         <title>{% site_title %} &#x2022; {% block title %}{% endblock title %}</title>
     </head>
@@ -31,7 +32,10 @@
         </div>
 
         {% include 'include/footer.html' %}
-
         {% block footer_src %}{% endblock footer_src %}
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
     </body>
 </html>
