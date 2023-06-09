@@ -235,6 +235,61 @@ footer p {
 	padding: 10px;
 }
 
+.article #title {
+	text-align: center;
+	padding-bottom: 20px;
+}
+
+.article #time #pub_date {
+	float: right;
+	width: 50%;
+	text-align: center;
+	font-size: 16px;
+	font-weight: lighter;
+	color: darkred;
+}
+
+.article #time #up_date {
+	float: right;
+	width: 50%;
+	text-align: center;
+	font-size: 16px;
+	font-weight: lighter;
+	color: darkgreen;
+}
+
+.article #category {
+	float: right;
+	width: 50%;
+	text-align: center;
+	font-size: 16px;
+	font-weight: lighter;
+}
+
+.article #tag {
+	float: right;
+	width: 50%;
+	text-align: center;
+	font-size: 16px;
+	font-weight: lighter;
+}
+
+.article #article {
+	text-align: justify;
+	margin-right: 10px;
+	margin-left: 10px;
+	font-size: 17px;
+	font-weight: lighter;
+}
+
+.comment p {
+	font-size: 28px;
+	font-weight: bold;
+	text-align: center;
+}
+
+/* Responsive media query */
+
 @media all {
 	#logo, .navigation ul li a
 	{
@@ -277,6 +332,34 @@ footer p {
 
 	.left {
 		width: 100%;
+	}
+
+	.article #title {
+		font-size: 22px;
+	}
+
+	.article #article {
+		font-size: 18px;
+	}
+
+	.article #time #pub_date {
+		width: 100%;
+		font-size: 17px;
+	}
+
+	.article #time #up_date {
+		width: 100%;
+		font-size: 17px;
+	}
+
+	.article #category {
+		width: 100%;
+		font-size: 17px;
+	}
+
+	.article #tag {
+		width: 100%;
+		font-size: 17px;
 	}
 }
 
@@ -351,6 +434,34 @@ footer p {
 	.posts-serie li {
 		font-size: 15px;
 		font-weight: normal;
+	}
+
+	.article #title {
+		font-size: 22px;
+	}
+
+	.article #article {
+		font-size: 18px;
+	}
+
+	.article #time #pub_date {
+		width: 100%;
+		font-size: 16px;
+	}
+
+	.article #time #up_date {
+		width: 100%;
+		font-size: 16px;
+	}
+
+	.article #category {
+		width: 100%;
+		font-size: 16px;
+	}
+
+	.article #tag {
+		width: 100%;
+		font-size: 16px;
 	}
 }
 
@@ -427,6 +538,34 @@ footer p {
 	.posts-serie li {
 		font-size: 15px;
 		font-weight: normal;
+	}
+
+	.article #title {
+		font-size: 20px;
+	}
+
+	.article #article {
+		font-size: 16px;
+	}
+
+	.article #time #pub_date {
+		width: 100%;
+		font-size: 15px;
+	}
+
+	.article #time #up_date {
+		width: 100%;
+		font-size: 15px;
+	}
+
+	.article #category {
+		width: 100%;
+		font-size: 15px;
+	}
+
+	.article #tag {
+		width: 100%;
+		font-size: 15px;
 	}
 }
 
@@ -505,6 +644,34 @@ footer p {
 		font-weight: normal;
 	}
 
+	.article #title {
+		font-size: 20px;
+	}
+
+	.article #article {
+		font-size: 16px;
+	}
+
+	.article #time #pub_date {
+		width: 100%;
+		font-size: 15px;
+	}
+
+	.article #time #up_date {
+		width: 100%;
+		font-size: 15px;
+	}
+
+	.article #category {
+		width: 100%;
+		font-size: 15px;
+	}
+
+	.article #tag {
+		width: 100%;
+		font-size: 15px;
+	}
+
 }
 @media screen and (min-width: 0px) and (max-width: 319px) {
 	header {
@@ -579,6 +746,34 @@ footer p {
 	.posts-serie li {
 		font-size: 15px;
 		font-weight: normal;
+	}
+
+	.article #title {
+		font-size: 20px;
+	}
+
+	.article #article {
+		font-size: 16px;
+	}
+
+	.article #time #pub_date {
+		width: 100%;
+		font-size: 14px;
+	}
+
+	.article #time #up_date {
+		width: 100%;
+		font-size: 14px;
+	}
+
+	.article #category {
+		width: 100%;
+		font-size: 14px;
+	}
+
+	.article #tag {
+		width: 100%;
+		font-size: 14px;
 	}
 
 }

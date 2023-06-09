@@ -1,23 +1,31 @@
 {% extends 'layout.html' %}
 {% load comment_tags %}
 
-{% block title %}تک پست | {{ object.title }}{% endblock title %}
+{% block title %} تک پست &#x2022; {{ object.title }} {% endblock title %}
 
 {% block content %}
-<main class="" id="single-post-detail">
-    <section id="info">
-        <h1 id="title" style="color: blue;">{{ object.title }}</h1>
-        <p>نوشته شده ی <time style="color: green;">{{ object.pub_date }}</time></p>
-        <p>بروز شده ی <time style="color: pink;">{{ object.up_date }}</time></p>
-        <p>در دسته ی <span>{% for category in object.category.all %} <p style="color: red;">{{ category.title }}</p> {% endfor %}</span></p>
-        <p>در دسته تگهای <span>{% for tag in object.tag.all %} <p style="color: yellow;">{{ tag.title }}</p> {% endfor %}</span></p>
+<div class="article">
+    <h1 id="title">{{ object.title }}</h1>
 
-        <p>نوشته ی <span style="color: brown;">{{ object.author }}</span></p>
-
-        <article class="" id="artice">
-            {{ object.content|safe }}
-        </article>
+    <article id="article">
+        {{ object.content|safe }}
+    </article>
+    <hr>
+    <summary>
+        <p id="time">
+            <span id="pub_date">زمان انتشار: <time>{{ object.pub_date|date:'Y/m/d' }}</time></span>
+            {% if object.up_date > object.pub_date %}
+                <span id="up_date">زمان بروزرسانی: <time>{{ object.up_date|date:'Y/m/d' }}</time></span>
+            {% endif %}
+        </p>
+        <p id="group">
+            <span id="category">دسته بندی: {% for category in object.category.all %} <a href="#">{{ category.title }} </a> | {% endfor %}</span>
+            <span id="tag">برچسب: {% for tag in object.tag.all %} <a href="#">{{ tag.title }} </a> | {% endfor %}</span>
+        </p>
+    </summary>
+    <section class="comment">
+        <p>نظرات</p>
         {% render_comments object request %}
     </section>
-</main>
+</div>
 {% endblock content %}
