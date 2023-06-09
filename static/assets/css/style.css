@@ -1,10 +1,34 @@
 * {
 	box-sizing: border-box;
-	font-family: 'Vazir FD-WOL', Cambria, Georgia, serif;
+	font-family: 'Vazir FD-WOL';
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #E8E8E8;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 body {
 	background: #fff url(../imgs/bg.png) repeat center center;
+}
+
+header {
+	text-align: center;
 }
 
 .right h1 {
@@ -64,6 +88,11 @@ a:hover {
 .container {
 	margin-right: 4%;
 	margin-left: 4%;
+
+}
+
+.content {
+	border: 1px solid #ccc;
 }
 
 .navigation {
@@ -96,10 +125,13 @@ a:hover {
 	background: #fff;
 }
 
+.poll input {
+	font-size: 16px;
+}
+
 .poll #submit {
 	margin-right: 10px;
 	margin-bottom: 20px;
-	padding: 5px;
 	width: 93%;
 	cursor: pointer;
 }
@@ -122,7 +154,7 @@ a:hover {
 #logo {
 	background:url(../imgs/logo.png) no-repeat;
 	height:80px;
-	width:289px;
+	width: 61%;
 }
 
 .column {
@@ -139,8 +171,42 @@ a:hover {
 	border-left: 1px solid #ccc;
 }
 
-.row {
-	border: 1px solid #ccc;
+.posts-single {
+	float: right;
+	width: 50%;
+	text-align: center;
+	height: 770px;
+	overflow-y: scroll;
+}
+
+.posts-single li {
+	text-align: right;
+	font-size: 18px;
+	padding-bottom: 7px;
+}
+
+.posts-single p {
+	font-size: 22px;
+	font-weight: bold;
+}
+
+.posts-serie {
+	float: right;
+	width: 50%;
+	text-align: center;
+	height: 770px;
+	overflow-y: scroll;
+}
+
+.posts-serie li {
+	text-align: right;
+	font-size: 18px;
+	padding-bottom: 7px;
+}
+
+.posts-serie p {
+	font-size: 22px;
+	font-weight: bold;
 }
 
 .row:after {
@@ -179,13 +245,12 @@ footer p {
 	}
 }
 
-@media screen and (min-width: 800px) and (max-width: 920px) {
+@media screen and (min-width: 761px) and (max-width: 1200px) {
 	header {
 		text-align:center;
 	}
 
 	.right {
-
 		width: 100%;
 		border: 0;
 	}
@@ -203,7 +268,7 @@ footer p {
 	}
 
 	#logo {
-		width: 65%;
+		width: 63%;
 	}
 
 	#title h1 {
@@ -236,7 +301,6 @@ footer p {
 	}
 
 	.right {
-
 		width: 100%;
 		border: 0;
 	}
@@ -254,7 +318,7 @@ footer p {
 	}
 
 	#logo {
-		width: 65%;
+		width: 66%;
 	}
 
 	#title h1 {
@@ -263,6 +327,30 @@ footer p {
 
 	.left {
 		width: 100%;
+	}
+
+	.posts-single {
+		font-size: 16px;
+		font-weight: normal;
+		width: 100%;
+		overflow-y: scroll;
+	}
+
+	.posts-single li {
+		font-size: 15px;
+		font-weight: normal;
+	}
+
+	.posts-serie {
+		font-size: 16px;
+		font-weight: normal;
+		width: 100%;
+		overflow-y: scroll;
+	}
+
+	.posts-serie li {
+		font-size: 15px;
+		font-weight: normal;
 	}
 }
 
@@ -306,7 +394,7 @@ footer p {
 	}
 
 	#logo {
-		width: 72%;
+		width: 75%;
 	}
 
 	#title h1 {
@@ -315,6 +403,30 @@ footer p {
 
 	.left {
 		width: 100%;
+	}
+
+	.posts-single {
+		font-size: 16px;
+		font-weight: normal;
+		width: 100%;
+		overflow-y: scroll;
+	}
+
+	.posts-single li {
+		font-size: 15px;
+		font-weight: normal;
+	}
+
+	.posts-serie {
+		font-size: 16px;
+		font-weight: normal;
+		width: 100%;
+		overflow-y: scroll;
+	}
+
+	.posts-serie li {
+		font-size: 15px;
+		font-weight: normal;
 	}
 }
 
@@ -358,7 +470,7 @@ footer p {
 	}
 
 	#logo {
-		width: 70%;
+		width: 75%;
 	}
 
 	#title h1 {
@@ -367,6 +479,30 @@ footer p {
 
 	.left {
 		width: 100%;
+	}
+
+	.posts-single {
+		font-size: 16px;
+		font-weight: normal;
+		width: 100%;
+		overflow-y: scroll;
+	}
+
+	.posts-single li {
+		font-size: 15px;
+		font-weight: normal;
+	}
+
+	.posts-serie {
+		font-size: 16px;
+		font-weight: normal;
+		width: 100%;
+		overflow-y: scroll;
+	}
+
+	.posts-serie li {
+		font-size: 15px;
+		font-weight: normal;
 	}
 
 }
@@ -381,9 +517,9 @@ footer p {
 		font-weight:bold;
 	}
 
-	h1,.sidebar h1 {
-		font-size:14px;
-		text-align:right;
+	h1, .sidebar h1 {
+		font-size: 14px;
+		text-align: right;
 	 }
 
 	#logo {
@@ -419,6 +555,30 @@ footer p {
 
 	.left {
 		width: 100%;
+	}
+
+	.posts-single {
+		font-size: 16px;
+		font-weight: normal;
+		width: 100%;
+		overflow-y: scroll;
+	}
+
+	.posts-single li {
+		font-size: 15px;
+		font-weight: normal;
+	}
+
+	.posts-serie {
+		font-size: 16px;
+		font-weight: normal;
+		width: 100%;
+		overflow-y: scroll;
+	}
+
+	.posts-serie li {
+		font-size: 15px;
+		font-weight: normal;
 	}
 
 }

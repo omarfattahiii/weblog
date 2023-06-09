@@ -4,33 +4,32 @@
 {% block title %}پست ها{% endblock title %}
 
 {% block content %}
-<div class="grid head">
-    <div id="single-post">
-    <article>
-        <header>پست های تکی</header>
+<div class="row">
+    <div class="column posts-single">
+        <p>پست های تکی</p>
+        <hr>
         {% if serie %}
-                {% for object in single %}
-                <a href="{% url 'post:single_posts_detail' object.slug %}">{{ object.title }}</a>
-                <br>
-                {% endfor %}
+                <ul>
+                    {% for object in single %}
+                    <li><a href="{% url 'post:single_posts_detail' object.slug %}">{{ object.title }}</a></li>
+                    {% endfor %}
+                </ul>
             {% else %}
             <p>پستی برای ارائه وجود ندارد. (پستی نوشته نشده / غیرفعال شده)</p>
         {% endif %}
-    </article>
-   </div>
-
-  <div id="serie-post">
-  <article>
-      <header>پست های سریالی</header>
-      {% if serie %}
-              {% for object in serie %}
-              <a href="{% url 'post:serie_posts_detail' object.slug %}">{{ object.title }}</a>
-              <br>
-              {% endfor %}
-          {% else %}
-          <p>پستی برای ارائه وجود ندارد. (پستی نوشته نشده / غیرفعال شده)</p>
-      {% endif %}
-  </article>
- </div>
+    </div>
+    <div class="column posts-serie">
+        <p>پست های سریالی</p>
+        <hr>
+        {% if serie %}
+                <ul>
+                    {% for object in serie %}
+                    <li><a href="{% url 'post:serie_posts_detail' object.slug %}">{{ object.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+            <p>پستی برای ارائه وجود ندارد. (پستی نوشته نشده / غیرفعال شده)</p>
+        {% endif %}
+    </div>
 </div>
 {% endblock content %}
