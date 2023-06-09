@@ -10,9 +10,8 @@ class Polls(models.Model):
     slug = slug = models.SlugField(max_length=50, unique=True)
     pub_date = models.DateTimeField(auto_now_add=True)
     up_date = models.DateTimeField(auto_now=True)
-    # TODO: comment field
     author = models.ForeignKey(User, default=True, on_delete=models.CASCADE)
-    lock = models.BooleanField(default=False)
+    is_published = models.BooleanField(default=True)
 
     class Meta:
         verbose_name = "Poll"
@@ -24,7 +23,7 @@ class Polls(models.Model):
 class PollsOption(models.Model):
     poll = models.ForeignKey(Polls, on_delete=models.CASCADE)
     title = models.CharField(max_length=30, unique=True)
-    lock = models.BooleanField(default=False)
+    is_published = models.BooleanField(default=True)
 
     class Meta:
         verbose_name = "Poll Option"

@@ -4,10 +4,11 @@ from .models import Polls, PollsOption
 
 class PollsOptionInline(admin.TabularInline):
     model = PollsOption
+    extra = 4
 
 class PollsAdmin(admin.ModelAdmin):
-    list_display = ['title', 'slug', 'pub_date', 'up_date', 'author', 'lock']
-    list_filter = ['category', 'author', 'lock', 'pub_date', 'up_date']
+    list_display = ['title', 'slug', 'pub_date', 'up_date', 'author', 'is_published']
+    list_filter = ['category', 'author', 'is_published', 'pub_date', 'up_date']
     inlines = [PollsOptionInline]
     prepopulated_fields = {'slug': ['title']}
 

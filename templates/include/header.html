@@ -1,24 +1,28 @@
 {% load static %}
 {% load weblog_config %}
 
-<nav class="header">
-    <ul>
-        <li><strong><a href="{% url 'config:index' %}">{% site_header %}</a></strong></li>
-        <li><a href="{% url 'post:posts' %}" class="pure-menu-link">پست ها</a></li>
-        <li><a href="{% url 'category:parent_categories' %}" class="pure-menu-link">دسته بندی ها</a></li>
-        <li><a href="{% url 'poll:polls' %}" class="pure-menu-link">نظر سنجی ها</a></li>
-        <li><a href="{% url 'advertising:advertisings' %}" class="pure-menu-link">تبلیغات</a></li>
-        <li><a href="{% url 'presentation:presentations' %}" class="pure-menu-link">معرفی دیگران</a></li>
+<header >
+    <div id="title">
+        <div id="logo"></div>
+        <h1>یک <small>قالب وب </small> ریسپانسیو</h1>
+    </div>
+    <nav class="navigation">
+        <a href="{% url 'config:index' %}">صفحه اصلی</a>
+        <a href="{% url 'post:posts' %}">پست ها</a>
+        <a href="{% url 'category:parent_categories' %}">دسته بندی ها</a>
+        <a href="{% url 'poll:polls' %}">نظر سنجی ها</a>
+        <a href="{% url 'advertising:advertisings' %}">تبلیغات</a>
+        <a href="{% url 'presentation:presentations' %}">معرفی دیگران</a>
+        <a href="{% url 'config:contact' %}">ارتباط با ما</a>
+        <a href="{% url 'config:about' %}">معرفی وبلاگ</a>
         {% if request.user.is_superuser %}
-        <li><a href="/admin/" target="_blank" class="pure-menu-link">مدیریت سایت</a></li>
+            <a href="#">مدیریت وبلاگ</a>
         {% endif %}
-        <li><a href="{% url 'config:contact' %}" class="pure-menu-link">ارتباط</a></li>
-        <li><a href="{% url 'config:about' %}" class="pure-menu-link">معرفی وبلاگ</a></li>
         {% if request.user.is_authenticated %}
-        <li><a href="{% if request.user.is_superuser %}/admin/logout/{% else %}#{% endif %}" class="pure-menu-link">خروج از حساب</a></li>
+            <a href="{% if request.user.is_superuser %}/admin/logout/{% else %}#{% endif %}">خروج از حساب</a>
         {% else %}
-        <li><a href="#" class="pure-menu-link">ورود به حساب</a></li>
-        <li><a href="#" class="pure-menu-link">ثبت یک حساب</a></li>
+            <a href="#">ورود به حساب</a>
+            <a href="#">ثبت یک حساب</a>
         {% endif %}
-    </ul>
-</nav>
+    </nav>
+</header>
