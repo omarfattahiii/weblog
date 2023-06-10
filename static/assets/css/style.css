@@ -27,6 +27,16 @@ body {
 	background: #fff url(../imgs/bg.png) repeat center center;
 }
 
+.notic {
+	border: 1px solid #ccc;
+	margin-bottom: 20px;
+}
+
+.notic p {
+	color: #6190ca;
+	text-align: center;
+}
+
 header {
 	text-align: center;
 }
