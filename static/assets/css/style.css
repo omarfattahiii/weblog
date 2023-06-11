@@ -340,6 +340,14 @@ footer p {
 		text-align: center;
 	}
 
+	.posts-single {
+		height: 400px;
+	}
+
+	.posts-serie {
+		height: 400px;
+	}
+
 	.left {
 		width: 100%;
 	}
@@ -427,6 +435,7 @@ footer p {
 		font-weight: normal;
 		width: 100%;
 		overflow-y: scroll;
+		height: 300px;
 	}
 
 	.posts-single li {
@@ -439,6 +448,7 @@ footer p {
 		font-weight: normal;
 		width: 100%;
 		overflow-y: scroll;
+		height: 300px;
 	}
 
 	.posts-serie li {
@@ -531,6 +541,7 @@ footer p {
 		font-weight: normal;
 		width: 100%;
 		overflow-y: scroll;
+		height: 300px;
 	}
 
 	.posts-single li {
@@ -543,6 +554,7 @@ footer p {
 		font-weight: normal;
 		width: 100%;
 		overflow-y: scroll;
+		height: 300px;
 	}
 
 	.posts-serie li {
@@ -635,6 +647,7 @@ footer p {
 		font-weight: normal;
 		width: 100%;
 		overflow-y: scroll;
+		height: 300px;
 	}
 
 	.posts-single li {
@@ -647,6 +660,7 @@ footer p {
 		font-weight: normal;
 		width: 100%;
 		overflow-y: scroll;
+		height: 300px;
 	}
 
 	.posts-serie li {
@@ -739,6 +753,7 @@ footer p {
 		font-weight: normal;
 		width: 100%;
 		overflow-y: scroll;
+		height: 300px;
 	}
 
 	.posts-single li {
@@ -751,6 +766,7 @@ footer p {
 		font-weight: normal;
 		width: 100%;
 		overflow-y: scroll;
+		height: 300px;
 	}
 
 	.posts-serie li {

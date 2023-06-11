@@ -1,4 +1,5 @@
 from django.db import models
+from ckeditor.fields import RichTextField
 
 class Configuration(models.Model):
     site_title = models.TextField()
@@ -15,3 +16,14 @@ class Configuration(models.Model):
 
     def __str__(self):
         return self.site_title
+
+
+class Notic(models.Model):
+    content = RichTextField()
+
+    class Meta:
+        verbose_name = "WebLog Notic"
+        verbose_name_plural = "WebLog Notic's"
+
+    def __str__(self):
+        return self.content[:30]

@@ -1,9 +1,7 @@
 {% load static %}
 {% load weblog_config %}
 
-<div class="notic">
-    <p>تابع نظرات انجمن متن باز نرم افزاری</p>
-</div>
+{% notic %}
 
 <header>
     <div id="title">
@@ -20,7 +18,7 @@
         <a href="{% url 'config:contact' %}">ارتباط با ما</a>
         <a href="{% url 'config:about' %}">معرفی وبلاگ</a>
         {% if request.user.is_superuser %}
-            <a href="#">مدیریت وبلاگ</a>
+            <a href="/admin/" target="_blank">مدیریت وبلاگ</a>
         {% endif %}
         {% if request.user.is_authenticated %}
             <a href="{% if request.user.is_superuser %}/admin/logout/{% else %}#{% endif %}">خروج از حساب</a>

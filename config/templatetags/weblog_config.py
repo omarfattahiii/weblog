@@ -1,5 +1,5 @@
 from django import template
-from config.models import Configuration
+from config.models import Configuration, Notic
 
 register = template.Library()
 
@@ -51,6 +51,13 @@ try:
         favicon = config.favicon
 
         return favicon
+
+    @register.inclusion_tag("config/partials/note.html")
+    def notic():
+        notes = Notic.objects.all()
+        
+        context = {'notes': notes}
+        return context
 
 except Exception:
     raise Exception
