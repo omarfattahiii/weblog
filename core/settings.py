@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'django.contrib.sitemaps',
 
     'ckeditor',
-    'comment',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',

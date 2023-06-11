@@ -292,12 +292,6 @@ footer p {
 	font-weight: lighter;
 }
 
-.comment p {
-	font-size: 28px;
-	font-weight: bold;
-	text-align: center;
-}
-
 /* Responsive media query */
 
 @media all {

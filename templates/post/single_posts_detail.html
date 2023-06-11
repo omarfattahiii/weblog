@@ -1,5 +1,4 @@
 {% extends 'layout.html' %}
-{% load comment_tags %}
 
 {% block title %} تک پست &#x2022; {{ object.title }} {% endblock title %}
 
@@ -23,9 +22,5 @@
             <span id="tag">برچسب: {% for tag in object.tag.all %} <a href="#">{{ tag.title }} </a> | {% endfor %}</span>
         </p>
     </summary>
-    <section class="comment">
-        <p>نظرات</p>
-        {% render_comments object request %}
-    </section>
 </div>
 {% endblock content %}
