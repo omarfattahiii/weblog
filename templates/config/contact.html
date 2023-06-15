@@ -8,12 +8,16 @@
     <div class="column contact">
         <p>ارتباط</p>
         <hr>
-        <form class="contact-form" action="" method="post">
-            <input type="text" id="full_name" name="" value="" placeholder="نام و نام خانوادگی">
-            <input type="email" id="email_address" name="" value="" placeholder="آدرس ایمیل"> <br>
-            <input type="text" id="" name="subject" value="" placeholder="موضوع"> <br>
-            <textarea name="name" id="content" rows="10" cols="80" placeholder="پیام خود را وارد کنید ..."></textarea> <br><br>
-            <input type="submit" id="submit" name="" value="ارسال">
+        <form class="contact-form" action="{% url 'config:contact' %}" method="post">
+            {% csrf_token %}
+            <input type="text" id="full_name" name="name" placeholder="نام و نام خانوادگی">
+            <input type="email" id="email_address" name="email" placeholder="آدرس ایمیل"> <br>
+            <input type="text" id="" name="subject" placeholder="موضوع"> <br>
+            <textarea name="message" id="message" rows="10" cols="80" placeholder="پیام خود را وارد کنید ..."></textarea>
+            <br>
+            <span>پیام شما حتما خوانده می شود و پاسخ به همین ایمیلتان ارسال می گردد (;</span>
+            <br><br>
+            <input type="submit" id="submit" value="ارسال">
         </form>
     </div>
 </div>

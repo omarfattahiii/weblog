@@ -1,5 +1,6 @@
 from django.db import models
 from ckeditor.fields import RichTextField
+from post.models import SinglePost, SeriePost
 
 class Configuration(models.Model):
     site_title = models.TextField()
@@ -28,3 +29,31 @@ class Notic(models.Model):
 
     def __str__(self):
         return self.content[:30]
+
+
+class Reference(models.Model):
+    single_post = models.ManyToManyField(SinglePost, blank=True)
+    serie_post = models.ManyToManyField(SeriePost, blank=True)
+    url = models.TextField()
+
+    class Meta:
+        verbose_name = "Post Reference"
+        verbose_name_plural = "Post Reference's"
+
+    def __str__(self):
+        return f"{self.single_post}, {self.serie_post}"
+
+
+class Contact(models.Model):
+    name = models.CharField(max_length=70)
+    email = models.CharField(max_length=70)
+    subject = models.CharField(max_length=255)
+    message = models.TextField()
+    sent_date = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = "Contact"
+        verbose_name_plural = "Contact's"
+
+    def __str__(self):
+        return f"{self.name} - {self.subject[:50]}"

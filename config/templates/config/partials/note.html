@@ -1,5 +1,7 @@
 {% if notes %}
 <div class="notic" title="تخته اطلاعات">
-    <p>{{ notes.content|safe }}</p>
+    {% for note in notes %}
+    <p>{{ note.content|safe }}</p>
+    {% endfor %}
 </div>
 {% endif %}

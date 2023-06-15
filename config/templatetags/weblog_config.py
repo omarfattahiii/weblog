@@ -4,7 +4,7 @@ from config.models import Configuration, Notic
 register = template.Library()
 
 try:
-    config = Configuration.objects.get(id=2)
+    config = Configuration.objects.get(id=1)
 
     @register.inclusion_tag("config/partials/note.html")
     def notic():
