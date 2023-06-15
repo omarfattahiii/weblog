@@ -379,6 +379,25 @@ table, th, td {
     font-weight: bold;
 }
 
+.serie-parts {
+    float: right;
+    width: 100%;
+    text-align: center;
+    height: 945px;
+    overflow-y: scroll;
+}
+
+.serie-parts li {
+    text-align: right;
+    font-size: 20px;
+    padding-bottom: 7px;
+}
+
+.serie-parts p {
+    font-size: 22px;
+    font-weight: bold;
+}
+
 .posts-serie {
     float: right;
     width: 50%;

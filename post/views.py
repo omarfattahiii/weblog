@@ -17,8 +17,8 @@ def single_posts(request):
 
     return render(request, template_name, context)
 
-def single_posts_detail(request, slug):
-    object = get_object_or_404(SinglePost, slug=slug, is_published=True)
+def single_posts_detail(request, id):
+    object = get_object_or_404(SinglePost, pk=id, is_published=True)
     context = {'object': object}
     template_name = 'post/single_posts_detail.html'
 
@@ -32,8 +32,8 @@ def serie_posts(request):
 
     return render(request, template_name, context)
 
-def serie_posts_detail(request, slug):
-    object = get_object_or_404(SeriePost, slug=slug, is_published=True)
+def serie_posts_detail(request, id):
+    object = get_object_or_404(SeriePost, pk=id, is_published=True)
     object_parts = SeriePostPart.objects.filter(seriepost=object, is_published=True)
     context = {'object': object, 'object_parts': object_parts}
     template_name = 'post/serie_posts_detail.html'
@@ -41,8 +41,8 @@ def serie_posts_detail(request, slug):
     return render(request, template_name, context)
 
 
-def serie_posts_parts_detail(request, slug):
-    object = get_object_or_404(SeriePostPart, slug=slug, is_published=True)
+def serie_posts_parts_detail(request, id, part_id):
+    object = SeriePostPart.objects.get(id=part_id)
     context = {'object': object}
     template_name = 'post/serie_posts_parts_detail.html'
 

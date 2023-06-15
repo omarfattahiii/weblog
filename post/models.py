@@ -49,10 +49,10 @@ class SeriePost(models.Model):
 
 
 class SeriePostPart(models.Model):
-    seriepost = models.ForeignKey('SeriePost', on_delete=models.CASCADE)
+    seriepost = models.ForeignKey('SeriePost', on_delete=models.CASCADE, related_name="serie_post")
     part = models.IntegerField()
-    title = title = models.CharField(max_length=255, unique=True)
-    slug = models.SlugField(max_length=255, unique=True)
+    title = title = models.CharField(max_length=255)
+    slug = models.SlugField(max_length=255)
     content = RichTextField()
     pub_date = models.DateTimeField(auto_now_add=True)
     up_date = models.DateTimeField(auto_now=True)

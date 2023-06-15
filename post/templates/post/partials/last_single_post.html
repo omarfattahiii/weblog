@@ -2,7 +2,7 @@
     <h1>پست های  تکی اخیر</h1>
     <ul class="last_single_post">
     {% for object in single %}
-        <li><a href="{% url 'post:single_posts_detail' object.slug %}">{{ object.title }}</a></li>
+        <li><a href="{% url 'post:single_posts_detail' object.id %}">{{ object.title }}</a></li>
     {% endfor %}
     </ul>
 </nav>

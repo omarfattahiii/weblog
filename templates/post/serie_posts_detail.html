@@ -1,26 +1,37 @@
 {% extends 'layout.html' %}
 
-{% block title %}پست سریالی | {{ object.title }}{% endblock title %}
+{% block title %}پست سریالی &#x2022; {{ object.title }}{% endblock title %}
 
 {% block content %}
-<main class="" id="serie-post-detail">
-    <section id="info">
-        <h1 id="title">{{ object.title }}</h1>
-        <p>نوشته شده ی <time>{{ object.pub_date }}</time></p>
-        <p>بروز شده ی <time>{{ object.up_date }}</time></p>
+<div class="article">
+    <h1 id="title">{{ object.title }}</h1>
 
-        <p>نوشته ی <span>{{ object.author }}</span></p>
-
+    <article id="article">
+        {{ object.content|safe }}
+    </article>
+    <hr>
+    <summary>
+        <p id="time">
+            <span id="pub_date">زمان انتشار: <time>{{ object.pub_date|date:'Y/m/d' }}</time></span>
+            {% if object.up_date > object.pub_date %}
+                <span id="up_date">زمان بروزرسانی: <time>{{ object.up_date|date:'Y/m/d' }}</time></span>
+            {% endif %}
+        </p>
+        <p id="group">
+            <span id="category">دسته بندی: {% for category in object.category.all %} <a href="#">{{ category.title }} </a> | {% endfor %}</span>
+            <span id="tag">برچسب: {% for tag in object.tag.all %} <a href="#">{{ tag.title }} </a> | {% endfor %}</span>
+        </p>
+    </summary>
+</div>
+<div class="row">
+    <div class="column serie-parts">
         <p>قسمت ها</p>
-        {% for part in object_parts %}
-            <p>نام :</p>
-            <a href="{% url 'post:serie_posts_parts_detail' part.slug %}"><p>{{ part.title }}</p></a>
-            <p>شماره قسمت: </p>
-            <p>{{ part.part }}</p>
-            <br>
-            <br>
-        {% endfor %}
-    </section>
-
-</main>
+        <hr>
+        <ul>
+            {% for part in object_parts %}
+                <li>قسمت {{ part.part }} <a href="{% url 'post:serie_posts_parts_detail' object.id part.id %}">{{ part.title }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
 {% endblock content %}

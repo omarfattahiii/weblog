@@ -1,23 +1,22 @@
 {% extends 'layout.html' %}
-{% load comment_tags %}
 
-{% block title %}پست سریالی | {{ object.title }}{% endblock title %}
+{% block title %}{{ object.seriepost }} &#x2022; {{ object.title }} {% endblock title %}
 
 {% block content %}
-<main class="" id="serie-post-detail">
-    <section id="info">
-        <h1 id="title">{{ object.title }}</h1>
-        <p>نوشته شده ی <time>{{ object.pub_date }}</time></p>
-        <p>بروز شده ی <time>{{ object.up_date }}</time></p>
-
-        <p>نوشته ی <span>{{ object.author }}</span></p>
-
-        <article class="">
-            {{ object.content|safe }}
-        </article>
-
-        {% render_comments object request %}
-    </section>
-
-</main>
+<div class="article">
+    <span><a href="{% url 'post:serie_posts_detail' object.seriepost.id %}">{{ object.seriepost }}</a></span>
+    <h1 id="title">{{ object.title }}</h1>
+    <article id="article">
+        {{ object.content|safe }}
+    </article>
+    <hr>
+    <summary>
+        <p id="time">
+            <span id="pub_date">زمان انتشار: <time>{{ object.pub_date|date:'Y/m/d' }}</time></span>
+            {% if object.up_date > object.pub_date %}
+                <span id="up_date">زمان بروزرسانی: <time>{{ object.up_date|date:'Y/m/d' }}</time></span>
+            {% endif %}
+        </p>
+    </summary>
+</div>
 {% endblock content %}

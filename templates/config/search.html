@@ -5,7 +5,7 @@
         <hr>
         {% if single %}
         <ul>
-            {% for object in single %}<li><a href="{% url 'post:single_posts_detail' object.slug %}">{{ object.title }}</a></li>{% endfor %}
+            {% for object in single %}<li><a href="{% url 'post:single_posts_detail' object.id %}">{{ object.title }}</a></li>{% endfor %}
         </ul>
         {% else %}<p>پستی با این عنوان وجود ندارد.</p>{% endif %}
     </div>
@@ -14,7 +14,7 @@
         <hr>
         {% if serie %}
         <ul>
-            {% for object in serie %}<li><a href="{% url 'post:serie_posts_detail' object.slug %}">{{ object.title }}</a></li>{% endfor %}
+            {% for object in serie %}<li><a href="{% url 'post:serie_posts_detail' object.id %}">{{ object.title }}</a></li>{% endfor %}
         </ul>
         {% else %}<p>پستی با این  وجود ندارد.</p>{% endif %}
     </div>

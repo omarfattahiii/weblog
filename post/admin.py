@@ -4,6 +4,7 @@ from .models import SinglePost, SeriePostPart, SeriePost
 
 class SeriePostPartInline(admin.TabularInline):
     model = SeriePostPart
+    extra = 0
 
 class SeriePostAdmin(admin.ModelAdmin):
     inlines = [SeriePostPartInline]
