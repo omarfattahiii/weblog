@@ -4,6 +4,7 @@ from django.urls import reverse
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import Contact, Reference
+from post.models import SinglePost, SeriePost
 
 
 def index(request):
@@ -47,4 +48,15 @@ def reference(request):
     context = {'reference': reference}
 
     template_name = 'config/reference.html'
+    return render(request, template_name, context)
+
+def search(request):
+    if request.method == 'GET':
+        query = request.GET['q']
+        single_post = SinglePost.objects.filter(title__contains=query)
+        serie_post = SeriePost.objects.filter(title__contains=query)
+
+    context = {'single': single_post, 'serie': serie_post, 'query': query}
+
+    template_name = 'config/search.html'
     return render(request, template_name, context)

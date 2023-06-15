@@ -3,10 +3,10 @@
 <!-- START right sidebar -->
 <div class="sidebar">
     <h1>جستجو در وبلاگ</h1>
-    <form class="search" action="" method="post">
-        <input type="text" name="query" id="entry-search" placeholder="جستجو ...">
+    <form class="search" action="{% url 'config:search' %}" method="get">
+        <input type="text" name="q" id="entry-search" placeholder="جستجو ...">
         <br>
-        <input type="submit" name="submit" id="submit-search" value="جستجو کن">
+        <input type="submit" id="submit-search" value="جستجو کن">
     </form>
 </div>
 <!-- END right sidebar -->
