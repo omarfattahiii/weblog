@@ -90,6 +90,13 @@ a:hover {
     margin: 0 12px;
 }
 
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 10px;
+  text-align: center;
+}
+
 .sidebar h1 {
     font-size: 18px;
     border-bottom: 2px solid #dedede;
@@ -510,6 +517,25 @@ a:hover {
 }
 
 .child p {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.reference {
+    float: right;
+    width: 100%;
+    text-align: center;
+    height: 1125px;
+    overflow-y: scroll;
+}
+
+.reference li {
+    text-align: right;
+    font-size: 18px;
+    padding-bottom: 7px;
+}
+
+.reference p {
     font-size: 22px;
     font-weight: bold;
 }

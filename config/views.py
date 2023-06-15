@@ -3,7 +3,7 @@ from decouple import config
 from django.urls import reverse
 from django.contrib import messages
 from django.http import HttpResponseRedirect
-from .models import Contact
+from .models import Contact, Reference
 
 
 def index(request):
@@ -40,3 +40,11 @@ def contact(request):
 
     template_name = 'config/contact.html'
     return render(request, template_name, {})
+
+
+def reference(request):
+    reference = Reference.objects.all()
+    context = {'reference': reference}
+
+    template_name = 'config/reference.html'
+    return render(request, template_name, context)

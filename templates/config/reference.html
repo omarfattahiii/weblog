@@ -1,0 +1,21 @@
+{% extends 'layout.html' %} {% block meta_tag %}
+<meta name="robots" content="noindex,nofollow">{% endblock meta_tag %} {% block title %}منابع وبلاگ{% endblock title %} {% block content %} <div class="row">
+    <div class="row">
+        <div class="column reference">
+            <p>منابع</p>
+            <hr>
+            {% if reference %}
+            {% for object in reference %}
+            <ul>
+                {% for single in object.single_post.all %}
+                <li><a href="{{ object.url }}">{{ single }}</a></li>
+                {% endfor %}
+                {% for serie in object.serie_post.all %}
+                <li><a href="{{ object.url }}">{{ serie }}</a></li>
+                {% endfor %}
+            </ul>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</div> {% endblock content %}
