@@ -1,7 +1,4 @@
-{% load static %}
-{% load post %}
-{% load weblog_config %}
-
+{% load static %}{% load weblog_config %}{% load post %}
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
     <head>
@@ -19,20 +16,16 @@
         <title>{% site_title %} &#x2022; {% block title %}{% endblock title %}</title>
     </head>
     <body class="container">
-        {% include 'include/header.html' %}
-
+    {% include 'include/header.html' %}
         <div class="row content">
-            <div class="column left">
-                {% block content %}
-                {% endblock content %}
-            </div>
+            <div class="column left">{% block content %}{% endblock content %}</div>
             <div class="column right">
                 {% include 'include/sidebar.html' %}
             </div>
         </div>
-
-        {% include 'include/footer.html' %}
+    {% include 'include/footer.html' %}
         {% block footer_src %}{% endblock footer_src %}
+        <script src="{% static 'assets/js/script.js' %}" charset="utf-8"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
         <script>
             hljs.highlightAll();

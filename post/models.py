@@ -7,7 +7,7 @@ from ckeditor.fields import RichTextField
 
 
 class SinglePost(models.Model):
-    category = models.ManyToManyField(Category)
+    category = models.ManyToManyField(Category, related_name="single_post")
     title = models.CharField(max_length=255, unique=True)
     slug = models.SlugField(max_length=255, unique=True)
     content = RichTextField()
@@ -15,7 +15,7 @@ class SinglePost(models.Model):
     up_date = models.DateTimeField(auto_now=True)
     author = models.ForeignKey(User, default=True, on_delete=models.CASCADE)
     is_published = models.BooleanField(default=True)
-    tag = models.ManyToManyField(Tags)
+    tag = models.ManyToManyField(Tags, related_name="single_post_tag")
 
     class Meta:
         verbose_name = "Single Post"
@@ -28,14 +28,14 @@ class SinglePost(models.Model):
         return reverse("post:single_posts_detail", kwargs={'slug': self.slug})
 
 class SeriePost(models.Model):
-    category = models.ManyToManyField(Category)
+    category = models.ManyToManyField(Category, related_name="serie_post")
     title = models.CharField(max_length=255, unique=True)
     slug = models.SlugField(max_length=255, unique=True)
     pub_date = models.DateTimeField(auto_now_add=True)
     up_date = models.DateTimeField(auto_now=True)
     author = models.ForeignKey(User, default=True, on_delete=models.CASCADE)
     is_published = models.BooleanField(default=True)
-    tag = models.ManyToManyField(Tags)
+    tag = models.ManyToManyField(Tags, related_name="serie_post_tag")
 
     class Meta:
         verbose_name = "Seire Post"

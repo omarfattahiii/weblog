@@ -1,7 +1,18 @@
 {% extends 'layout.html' %}
+{% load weblog_config %}
+
 {% block meta_tag %}<meta name="robots" content="noindex,nofollow">{% endblock meta_tag %}
 
 {% block title %}معرفی وبلاگ{% endblock title %}
 
 {% block content %}
+<div class="row">
+    <div class="column about">
+        <p>معرفی وبلاگ</p>
+        <hr>
+        <p id="content">
+            {% about %}
+        </p>
+    </div>
+</div>
 {% endblock content %}

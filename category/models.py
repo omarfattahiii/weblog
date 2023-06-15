@@ -13,7 +13,7 @@ class ParentCategory(models.Model):
         return self.title
 
 class Category(models.Model):
-    parent = models.ForeignKey(ParentCategory, on_delete=models.CASCADE)
+    parent = models.ForeignKey('ParentCategory', on_delete=models.CASCADE, related_name='child_category')
     title = models.CharField(max_length=30, unique=True)
     slug = models.SlugField(max_length=50, unique=True)
 

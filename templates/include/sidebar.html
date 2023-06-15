@@ -1,6 +1,6 @@
-{% load post %}
-{% load poll %}
+{% load post %}{% load poll %}{% load tag %}
 
+<!-- START right sidebar -->
 <div class="sidebar">
     <h1>جستجو در وبلاگ</h1>
     <form class="search" action="" method="post">
@@ -9,7 +9,6 @@
         <input type="submit" name="submit" id="submit-search" value="جستجو کن">
     </form>
 </div>
+<!-- END right sidebar -->
 
-{% last_poll %}
-{% last_single_post %}
-{% last_serie_post %}
+{% last_poll %}{% last_single_post %}{% last_serie_post %}{% all_tags %}

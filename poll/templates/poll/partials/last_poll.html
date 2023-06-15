@@ -1,15 +1,17 @@
 <nav class="sidebar">
     <h1>جدیدترین نظرسنجی</h1>
-        <div class="poll">
-            <h3><span><sub>نظر | </sub></span><u>{{ poll.title }}</u></h3>
-            <ol>
-                {% for option in poll_option %}
-                    <li>
-                        <input type="radio" name="poll" id="{{ option.id }}" value="{{ option.title }}">
-                        <label for="{{ option.id }}">{{ option.title }}</label>
-                    </li>
-                {% endfor %}
-            </ol>
-            <input id="submit" type="submit" name="submit" value="ارسال">
+        <div class="last_poll">
+            <form class="" action="" method="post">
+                <h3><span><sub>نظر | </sub></span><u>{{ poll.title }}</u></h3>
+                <ol>
+                    {% for option in poll_option %}
+                        <li>
+                            <input type="radio" name="poll" id="{{ option.id }}" value="{{ option.title }}">
+                            <label for="{{ option.id }}">{{ option.title }}</label>
+                        </li>
+                    {% endfor %}
+                </ol>
+                <input id="submit" type="submit" name="submit" value="ارسال">
+            </form>
         </div>
 </nav>

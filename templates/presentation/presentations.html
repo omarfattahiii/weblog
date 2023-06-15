@@ -1,6 +1,22 @@
 {% extends 'layout.html' %}
+{% load static %}
 
 {% block title %}معرفی دیگران{% endblock title %}
 
 {% block content %}
+<div class="row">
+    <div class="column presentation">
+        <p>معرفی دیگران</p>
+        <hr>
+        {% if serie %}
+                <ul>
+                    {% for object in objects %}
+                    <li><a href="">{{ object.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+            <p>معرفی وجود ندارد. (نوشته نشده / غیرفعال شده)</p>
+        {% endif %}
+    </div>
+</div>
 {% endblock content %}

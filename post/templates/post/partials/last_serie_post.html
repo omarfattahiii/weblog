@@ -1,6 +1,6 @@
 <nav class="sidebar">
     <h1>پست های  سریالی اخیر</h1>
-    <ul>
+    <ul class="last_seire_post">
     {% for object in serie %}
         <li><a href="{% url 'post:serie_posts_detail' object.slug %}">{{ object.title }}</a></li>
     {% endfor %}

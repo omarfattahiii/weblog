@@ -4,7 +4,14 @@ from config.models import Configuration, Notic
 register = template.Library()
 
 try:
-    config = Configuration.objects.get(id=1)
+    config = Configuration.objects.get(id=2)
+
+    @register.inclusion_tag("config/partials/note.html")
+    def notic():
+        notes = Notic.objects.all()
+        context = {'notes': notes}
+
+        return context
 
     @register.simple_tag
     def site_title():
@@ -47,17 +54,16 @@ try:
         return revised
 
     @register.simple_tag
+    def about():
+        site_about = config.site_about
+
+        return site_about
+
+    @register.simple_tag
     def icon():
         favicon = config.favicon
 
         return favicon
 
-    @register.inclusion_tag("config/partials/note.html")
-    def notic():
-        notes = Notic.objects.all()
-        
-        context = {'notes': notes}
-        return context
-
 except Exception:
-    raise Exception
+    print(Exception)

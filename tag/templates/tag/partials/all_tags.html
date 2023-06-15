@@ -1,0 +1,17 @@
+<nav class="sidebar">
+    <h1>برچسب های وبلاگ</h1>
+    <ul class="tags">
+        {% for object in tags %}
+            <li>
+                <a href="">
+                    {{ object.title }}
+                    <span class="tag_number" hidden>
+                        {% for tags in object.single_post_tag.all %}
+                            {{ object.single_post_tag.count }}
+                        {% endfor %}
+                    </span>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</nav>

@@ -41,10 +41,6 @@ INSTALLED_APPS = [
     'django.contrib.sitemaps',
 
     'ckeditor',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'allauth.socialaccount.providers.google',
 
     'post.apps.PostConfig',
     'category.apps.CategoryConfig',
@@ -96,7 +92,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     },
 }
-
 
 
 AUTH_PASSWORD_VALIDATORS = [
