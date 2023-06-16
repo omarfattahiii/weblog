@@ -14,7 +14,7 @@
             <ol>
             {% for objectc in objectp.child_category.all %}
                 <li>
-                    <a href="#">{{ objectc.title }}({{ objectp.single_post.count }})</a>
+                    {{ objectc.title }}
                 </li>
             {% endfor %}
             </ol>

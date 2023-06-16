@@ -3,14 +3,7 @@
     <ul class="tags">
         {% for object in tags %}
             <li>
-                <a href="">
-                    {{ object.title }}
-                    <span class="tag_number" hidden>
-                        {% for tags in object.single_post_tag.all %}
-                            {{ object.single_post_tag.count }}
-                        {% endfor %}
-                    </span>
-                </a>
+                {{ object.title }}
             </li>
         {% endfor %}
     </ul>
