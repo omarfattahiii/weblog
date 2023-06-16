@@ -1,5 +1,5 @@
 from django import template
-from config.models import Configuration, Notic
+from config.models import Configuration, Notic, News
 
 register = template.Library()
 
@@ -10,6 +10,13 @@ try:
     def notic():
         notes = Notic.objects.all()
         context = {'notes': notes}
+
+        return context
+
+    @register.inclusion_tag("config/partials/news.html")
+    def blog_news():
+        news = News.objects.all()
+        context = {'news': news}
 
         return context
 

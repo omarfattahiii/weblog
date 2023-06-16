@@ -57,3 +57,14 @@ class Contact(models.Model):
 
     def __str__(self):
         return f"{self.name} - {self.subject[:50]}"
+
+
+class News(models.Model):
+    content = RichTextField()
+
+    class Meta:
+        verbose_name = "News"
+        verbose_name_plural = "News's"
+
+    def __str__(self):
+        return self.content[:50]

@@ -1,0 +1,10 @@
+{% if news %}
+<nav class="sidebar">
+    <h1>اخبار وبلاگ</h1>
+    <ul class="last_seire_post">
+    {% for object in news %}
+        <li>{{ object.content|safe }}</li>
+    {% endfor %}
+    </ul>
+</nav>
+{% endif %}
