@@ -17,6 +17,7 @@ urlpatterns = [
     path('posts/', include('post.urls')),
     path('categories/', include('category.urls')),
     path('polls/', include('poll.urls')),
+    path('subscribe/', include('subscriber.urls')),
     path('advertisings/', include('advertising.urls')),
     path('presentations/', include('presentation.urls')),
 

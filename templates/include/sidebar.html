@@ -12,3 +12,16 @@
 <!-- END right sidebar -->
 
 {% last_poll %}{% last_single_post %}{% last_serie_post %}{% all_tags %}
+
+<div class="sidebar">
+    <h1>دریافت آرشیو ماهانه</h1>
+    {% for message in messages %}
+    <span>{{ message }}</span>
+    {% endfor %}
+    <form class="search" action="{% url 'subscribe:submit' %}" method="POST">
+        {% csrf_token %}
+        <input type="email" name="email" id="entry-search" placeholder="آدرس ایمیل ...">
+        <br>
+        <input type="submit" id="submit-search" value="عضویت">
+    </form>
+</div>
