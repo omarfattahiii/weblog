@@ -1,4 +1,7 @@
 from django.shortcuts import render
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
+from django.contrib.auth.hashers import make_password
 from decouple import config
 from django.urls import reverse
 from django.contrib import messages
@@ -60,3 +63,61 @@ def search(request):
 
     template_name = 'config/search.html'
     return render(request, template_name, context)
+
+def signUp(request):
+    if request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('config:index'))
+    else:
+        if request.method == 'POST':
+            username = request.POST['username']
+            email = request.POST['email']
+            password = request.POST['password']
+
+            if username == "" or email == "" or password == "":
+                messages.error(request, "لطفا اطلاعات را وارد کنید.")
+                return HttpResponseRedirect(reverse('config:signup'))
+            else:
+                password_hash = make_password(password)
+
+                new_user = User.objects.create(username=username, email=email, password=password_hash)
+                new_user.is_active = True
+                new_user.save()
+
+                user = authenticate(username=username, password=password)
+                login(request, user)
+
+                return HttpResponseRedirect(reverse('config:index'))
+
+
+    template_name = 'registration/signup.html'
+    return render(request, template_name, {})
+
+def signIn(request):
+    if request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('config:index'))
+    else:
+        if request.method == 'POST':
+            username = request.POST['username']
+            password = request.POST['password']
+            if username == "" or password == "":
+                messages.error(request, "لطفا اطلاعات را وارد کنید.")
+                return HttpResponseRedirect(reverse('config:signin'))
+            else:
+                try:
+                    user = authenticate(username=username, password=password)
+                    login(request, user)
+                    return HttpResponseRedirect(reverse('config:index'))
+                except:
+                    messages.error(request, "نام کاربری یا رمز عبور اشتباه است.")
+                    return HttpResponseRedirect(reverse('config:signin'))
+    template_name = 'registration/signin.html'
+    return render(request, template_name, {})
+
+
+def signOut(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('config:index'))
+    else:
+        logout(request)
+
+    return HttpResponseRedirect(reverse('config:index'))

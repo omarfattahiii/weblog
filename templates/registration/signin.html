@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+{% block meta_tag %}<meta name="robots" content="noindex,nofollow">{% endblock meta_tag %}
+
+{% block title %}ورود{% endblock title %}
+
+{% block content %}
+<div class="row">
+    <div class="column contact">
+        <p>ورود</p>
+        <hr>
+        {% for message in messages %}
+        {{ message }}
+        {% endfor %}
+
+        {% if form.errors %}
+        <span>نام کاربری یا رمز عبور اشتباه است. لطفا مجدد وارد شوید.</span>
+        {% endif %}
+
+        <form class="contact-form" action="{% url 'config:signin' %}" method="post">
+            {% csrf_token %}
+            <input type="text" autofocus name="username" placeholder="نام کاربری"> <br>
+            <input type="password" name="password" placeholder="رمز عبور"> <br>
+            <br><br>
+            <input type="submit" id="submit" value="ورود">
+        </form>
+    </div>
+</div>
+{% endblock content %}

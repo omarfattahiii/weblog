@@ -12,8 +12,8 @@ sitemaps = {
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-
     path('', include('config.urls')),
+
     path('posts/', include('post.urls')),
     path('categories/', include('category.urls')),
     path('polls/', include('poll.urls')),
