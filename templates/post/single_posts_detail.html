@@ -1,5 +1,7 @@
 {% extends 'layout.html' %}
+{% load jalali_tags %}
 
+{% block meta_des %}{{ object.description }}{% endblock meta_des %}
 {% block title %} تک پست &#x2022; {{ object.title }} {% endblock title %}
 
 {% block content %}
@@ -12,9 +14,9 @@
     <hr>
     <summary>
         <p id="time">
-            <span id="pub_date">زمان انتشار: <time>{{ object.pub_date|date:'Y/m/d' }}</time></span>
+            <span id="pub_date">زمان انتشار: <time>{{ object.pub_date|to_jalali:'%Y/%m/%d' }}</time></span>
             {% if object.up_date > object.pub_date %}
-                <span id="up_date">زمان بروزرسانی: <time>{{ object.up_date|date:'Y/m/d' }}</time></span>
+                <span id="up_date">زمان بروزرسانی: <time>{{ object.up_date|to_jalali:'%Y/%m/%d' }}</time></span>
             {% endif %}
         </p>
         <p id="group">
@@ -22,5 +24,11 @@
             <span id="tag">برچسب: {% for tag in object.tag.all %} <a href="#">{{ tag.title }} </a> | {% endfor %}</span>
         </p>
     </summary>
+</div>
+<div class="update-req">
+    <form action="{% url 'post:update_request_single' object %}" method="post">
+        {% csrf_token %}
+        <input type="submit" id="submit-update-re" value="درخواست بروزرسانی دوره">
+    </form>
 </div>
 {% endblock content %}

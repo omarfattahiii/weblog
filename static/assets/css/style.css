@@ -417,6 +417,71 @@ table, th, td {
     font-weight: bold;
 }
 
+.update-req {
+    margin-top: 100px;
+    text-align: center;
+}
+
+.update-req input {
+    margin-right: 10px;
+    margin-bottom: 20px;
+    width: 50%;
+    cursor: pointer;
+    padding: 0px 6px;
+    color: #aaa;
+    line-height: 30px;
+    font-size: 16px;
+    text-shadow: 1px 1px 1px #fff;
+    border: 1px solid #fff;
+    background: -moz-linear-gradient(
+        top,
+        #ffffff 0%,
+        #f6f6f6 47%,
+        #ededed 100%
+    ); /* FF3.6+ */
+    background: -webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        color-stop(0%, #ffffff),
+        color-stop(47%, #f6f6f6),
+        color-stop(100%, #ededed)
+    ); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(
+        top,
+        #ffffff 0%,
+        #f6f6f6 47%,
+        #ededed 100%
+    ); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(
+        top,
+        #ffffff 0%,
+        #f6f6f6 47%,
+        #ededed 100%
+    ); /* Opera 11.10+ */
+    background: -ms-linear-gradient(
+        top,
+        #ffffff 0%,
+        #f6f6f6 47%,
+        #ededed 100%
+    ); /* IE10+ */
+    background: linear-gradient(
+        top,
+        #ffffff 0%,
+        #f6f6f6 47%,
+        #ededed 100%
+    ); /* W3C */
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.update-req #submit-update-re:hover {
+    color: #333;
+}
+
+.update-req #submit-update-re:active {
+    background: #fff;
+}
+
 .advertise {
     float: right;
     width: 100%;
@@ -838,6 +903,13 @@ footer p {
         width: 100%;
         font-size: 17px;
     }
+
+    .update-req input {
+        padding: 0;
+        margin: 0;
+        width: 50%;
+        margin-top: 20px;
+    }
 }
 
 @media screen and (min-width: 641px) and (max-width: 760px) {
@@ -942,6 +1014,13 @@ footer p {
     .article #tag {
         width: 100%;
         font-size: 16px;
+    }
+
+    .update-req input {
+        padding: 0;
+        margin: 0;
+        width: 80%;
+        margin-top: 20px;
     }
 }
 
@@ -1049,6 +1128,14 @@ footer p {
         width: 100%;
         font-size: 15px;
     }
+
+    .update-req input {
+        padding: 0;
+        margin: 0;
+        width: 50%;
+        margin-top: 20px;
+        font-size: 12px;
+    }
 }
 
 @media screen and (min-width: 320px) and (max-width: 420px) {
@@ -1155,6 +1242,14 @@ footer p {
         width: 100%;
         font-size: 15px;
     }
+
+    .update-req input {
+        padding: 0;
+        margin: 0;
+        width: 80%;
+        margin-top: 20px;
+        font-size: 12px;
+    }
 }
 @media screen and (min-width: 0px) and (max-width: 319px) {
     header {
@@ -1259,5 +1354,13 @@ footer p {
     .article #tag {
         width: 100%;
         font-size: 14px;
+    }
+
+    .update-req input {
+        padding: 0;
+        margin: 0;
+        width: 80%;
+        margin-top: 20px;
+        font-size: 12px;
     }
 }

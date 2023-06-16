@@ -1,4 +1,4 @@
-{% load post %}{% load poll %}{% load tag %}
+{% load post %}{% load poll %}{% load tag %}{% load weblog_config %}
 
 <!-- START right sidebar -->
 <div class="sidebar">
@@ -12,6 +12,8 @@
 <!-- END right sidebar -->
 
 {% last_poll %}{% last_single_post %}{% last_serie_post %}{% all_tags %}
+
+{% blog_news %}
 
 <div class="sidebar">
     <h1>دریافت آرشیو ماهانه</h1>

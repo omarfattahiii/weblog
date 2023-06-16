@@ -10,6 +10,7 @@ class SinglePost(models.Model):
     category = models.ManyToManyField(Category, related_name="single_post")
     title = models.CharField(max_length=255, unique=True)
     slug = models.SlugField(max_length=255, unique=True)
+    description = models.TextField()
     content = RichTextField()
     pub_date = models.DateTimeField(auto_now_add=True)
     up_date = models.DateTimeField(auto_now=True)
@@ -31,6 +32,7 @@ class SeriePost(models.Model):
     category = models.ManyToManyField(Category, related_name="serie_post")
     title = models.CharField(max_length=255, unique=True)
     slug = models.SlugField(max_length=255, unique=True)
+    description = models.TextField()
     pub_date = models.DateTimeField(auto_now_add=True)
     up_date = models.DateTimeField(auto_now=True)
     author = models.ForeignKey(User, default=True, on_delete=models.CASCADE)
@@ -65,3 +67,15 @@ class SeriePostPart(models.Model):
 
     def __str__(self):
         return f"{self.title} | {self.seriepost}"
+
+
+class UpdateRequest(models.Model):
+    single_post = models.ForeignKey(SinglePost, on_delete=models.CASCADE, blank=True, null=True)
+    serie_post = models.ForeignKey(SeriePost, on_delete=models.CASCADE, blank=True, null=True)
+
+    class Meta:
+        verbose_name = "Post Update Request"
+        verbose_name_plural = "Post Update Request's"
+
+    def __str__(self):
+        return f"{self.single_post} | {self.serie_post}"

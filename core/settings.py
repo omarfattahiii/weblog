@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'django.contrib.sitemaps',
 
     'ckeditor',
+    'jalali_date',
 
     'post.apps.PostConfig',
     'category.apps.CategoryConfig',

@@ -1,4 +1,6 @@
 {% extends 'layout.html' %}
+{% load jalali_tags %}
+
 
 {% block title %}{{ object.seriepost }} &#x2022; {{ object.title }} {% endblock title %}
 
@@ -12,9 +14,9 @@
     <hr>
     <summary>
         <p id="time">
-            <span id="pub_date">زمان انتشار: <time>{{ object.pub_date|date:'Y/m/d' }}</time></span>
+            <span id="pub_date">زمان انتشار: <time>{{ object.pub_date|to_jalali:'%Y/%m/%d' }}</time></span>
             {% if object.up_date > object.pub_date %}
-                <span id="up_date">زمان بروزرسانی: <time>{{ object.up_date|date:'Y/m/d' }}</time></span>
+                <span id="up_date">زمان بروزرسانی: <time>{{ object.up_date|to_jalali:'%Y/%m/%d' }}</time></span>
             {% endif %}
         </p>
     </summary>
