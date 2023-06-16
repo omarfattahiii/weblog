@@ -70,12 +70,11 @@ class SeriePostPart(models.Model):
 
 
 class UpdateRequest(models.Model):
-    single_post = models.ForeignKey(SinglePost, on_delete=models.CASCADE, blank=True, null=True)
-    serie_post = models.ForeignKey(SeriePost, on_delete=models.CASCADE, blank=True, null=True)
+    post_title = models.CharField(max_length=255)
 
     class Meta:
         verbose_name = "Post Update Request"
         verbose_name_plural = "Post Update Request's"
 
     def __str__(self):
-        return f"{self.single_post} | {self.serie_post}"
+        return self.post_title

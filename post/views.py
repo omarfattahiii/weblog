@@ -51,16 +51,8 @@ def serie_posts_parts_detail(request, id, part_id):
     return render(request, template_name, context)
 
 
-def update_request_single(request, single):
+def update_request_post(request, title):
     if request.method == 'POST':
-        new_req_single = UpdateRequest.objects.create(single_post=single)
+        new_req_single = UpdateRequest.objects.create(post_title=title)
         new_req_single.save()
-        messages.success(request, 'درخواست شما ثبت شد.')
-    return HttpResponseRedirect(reverse('config:index'))
-
-def update_request_serie(request, serie):
-    if request.method == 'POST':
-        new_req_serie = UpdateRequest.objects.create(serie_post=serie)
-        new_req_serie.save()
-        messages.success(request, 'درخواست شما ثبت شد.')
     return HttpResponseRedirect(reverse('config:index'))

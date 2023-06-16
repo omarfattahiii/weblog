@@ -26,7 +26,7 @@
     </summary>
 </div>
 <div class="update-req">
-    <form action="{% url 'post:update_request_single' object %}" method="post">
+    <form action="{% url 'post:update_request_post' object.title %}" method="post">
         {% csrf_token %}
         <input type="submit" id="submit-update-re" value="درخواست بروزرسانی دوره">
     </form>

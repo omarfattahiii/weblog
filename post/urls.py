@@ -11,6 +11,5 @@ urlpatterns = [
     path('serie/<int:id>/', views.serie_posts_detail, name="serie_posts_detail"),
     path('serie/<int:id>/<int:part_id>/', views.serie_posts_parts_detail, name="serie_posts_parts_detail"),
 
-    path('single/up_req/<single>/', views.update_request_single, name='update_request_single'),
-    path('serie/up_req/<serie>/', views.update_request_serie, name='update_request_serie'),
+    path('posts/up_req/<title>/', views.update_request_post, name='update_request_post'),
 ]
