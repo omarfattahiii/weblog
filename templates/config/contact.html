@@ -13,8 +13,8 @@
         {% endfor %}
         <form class="contact-form" action="{% url 'config:contact' %}" method="post">
             {% csrf_token %}
-            <input type="text" id="full_name" name="name" placeholder="نام و نام خانوادگی">
-            <input type="email" id="email_address" name="email" placeholder="آدرس ایمیل"> <br>
+            <input type="text" id="full_name" name="name" required placeholder="نام و نام خانوادگی">
+            <input type="email" id="email_address" name="email" required placeholder="آدرس ایمیل"> <br>
 
             <select name="subject">
               <option value="انتقاد / پیشنهاد">انتقاد / پیشنهاد</option>
@@ -23,7 +23,7 @@
               <option value="پشتیبانی">پشتیبانی</option>
             </select>
 
-            <textarea name="message" id="message" placeholder="پیام خود را وارد کنید ..."></textarea>
+            <textarea name="message" id="message" required placeholder="پیام خود را وارد کنید ..."></textarea>
             <br>
             <span>پیام شما حتما خوانده می شود و پاسخ به همین ایمیلتان ارسال می گردد (;</span>
             <br><br>

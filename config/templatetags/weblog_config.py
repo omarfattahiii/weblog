@@ -42,13 +42,6 @@ try:
 
 
     @register.simple_tag
-    def meta_keywords():
-        keywords = config.meta_keywords
-
-        return keywords
-
-
-    @register.simple_tag
     def meta_author():
         author = config.meta_author
 

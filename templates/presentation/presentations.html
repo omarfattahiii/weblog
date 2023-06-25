@@ -8,10 +8,10 @@
     <div class="column presentation">
         <p>معرفی دیگران</p>
         <hr>
-        {% if serie %}
+        {% if objects %}
                 <ul>
                     {% for object in objects %}
-                    <li><a href="">{{ object.title }}</a></li>
+                    <li><a href="{% url 'presentation:presentation_detail' object.id %}">{{ object.title }}</a></li>
                     {% endfor %}
                 </ul>
             {% else %}

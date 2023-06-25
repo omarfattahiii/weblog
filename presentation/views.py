@@ -8,3 +8,10 @@ def presentation(request):
     template_name = 'presentation/presentations.html'
 
     return render(request, template_name, context)
+
+def presentation_detail(request, id):
+    object = Presentation.objects.get(pk=id)
+    context = {'object': object}
+    template_name = 'presentation/presentation_detail.html'
+
+    return render(request, template_name, context)

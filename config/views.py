@@ -30,14 +30,14 @@ def contact(request):
         new_contact = Contact.objects.create(name=name, email=email, subject=subject, message=message)
         new_contact.save()
 
-        RAYGANSMS = "https://RayganSMS.com/SendMessageWithPost.ashx"
-
-        USERNAME = config('USERNAME')
-        PASSWORD = config('PASSWORD')
-        PHONENUMBER = config('PHONENUMBER')
-        MESSAGE = f"یک پیام جدید از {name} با ایمیل {email}."
-        RECNUMBER = config('RECNUMBER')
-        SMSCLASS = 1
+        # RAYGANSMS = "https://RayganSMS.com/SendMessageWithPost.ashx"
+        #
+        # USERNAME = config('USERNAME')
+        # PASSWORD = config('PASSWORD')
+        # PHONENUMBER = config('PHONENUMBER')
+        # MESSAGE = f"یک پیام جدید از {name} با ایمیل {email}."
+        # RECNUMBER = config('RECNUMBER')
+        # SMSCLASS = 1
 
         messages.success(request, "پیام شما هم اکنون ارسال شد.")
         return HttpResponseRedirect(reverse('config:contact'))
