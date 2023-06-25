@@ -20,8 +20,8 @@
             {% endif %}
         </p>
         <p id="group">
-            <span id="category">دسته بندی: {% for category in object.category.all %} {{ category.title }} / {% endfor %}</span>
-            <span id="tag">برچسب: {% for tag in object.tag.all %} {{ tag.title }} / {% endfor %}</span>
+            <span id="category">دسته بندی: {% for category in object.category.all %} {{ category.title }} {% endfor %}</span>
+            <span id="tag">برچسب: {% for tag in object.tag.all %} {{ tag.title }} {% endfor %}</span>
         </p>
     </summary>
 </div>
