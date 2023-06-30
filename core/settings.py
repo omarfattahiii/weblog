@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'jalali_date',
 
     'post.apps.PostConfig',
+    'comment.apps.CommentConfig',
     'category.apps.CategoryConfig',
     'config.apps.ConfigConfig',
     'poll.apps.PollConfig',

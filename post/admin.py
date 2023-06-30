@@ -4,6 +4,33 @@ from .models import SinglePost, SeriePostPart, SeriePost, UpdateRequest
 admin.site.register(UpdateRequest)
 
 class SeriePostPartInline(admin.TabularInline):
+    list_display = ['title', 'slug', 'pub_date', 'up_date', 'author', 'is_published']
+    prepopulated_fields = {'slug': ['title']}
+    search_fields = ['title']
+    fieldsets = [
+        (
+            "Base Data",
+            {
+                "fields": ['part', 'title', 'slug'],
+            },
+        ),
+
+        (
+            "Content",
+            {
+                "fields": ['content'],
+            },
+        ),
+
+        (
+            "Status",
+            {
+                "classes": ["collapse"],
+                "fields": ['is_published'],
+            },
+        ),
+    ]
+
     model = SeriePostPart
     extra = 0
 
