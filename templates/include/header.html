@@ -1,32 +1,36 @@
 <header>
-    <div class="flex justify-between">
+    <div class="flex justify-between select-none bg-slate-900">
         <div>
             <ul>
-                <li><a href="">ورود</a></li>
-                <li><a href="">ثبت نام</a></li>
-                <li><a href="">نام کاربری</a></li>
+                <li><a href="{% url 'config:signin' %}" class="hover:border-b-4 border-b-blue-900">ورود</a></li>
+                <li><a href="{% url 'config:signup' %}" class="hover:border-b-4 border-b-blue-900">ثبت نام</a></li>
+                <li>نام کاربری</a></li>
             </ul>
         </div>
         <div>
             <ul>
-                <li><a href="">مدیریت</a></li>
-                <li><a href="">خروج</a></li>
-                <li><a href="">فید</a></li>
+                <li><a href="/admin/" class="hover:border-b-4 border-b-blue-900">مدیریت</a></li>
+                <li><a href="{% url 'config:signout' %}" class="hover:border-b-4 border-b-blue-900">خروج</a></li>
+                <li><a href="" class="hover:border-b-4 border-b-blue-900">فید</a></li>
             </ul>
         </div>
     </div>
 </header>
 
 <nav>
-    <div class="flex justify-between mb-10">
+    <div class="flex justify-between mb-10 select-none bg-slate-800">
         <div>
             <ul>
-                <li><a href="">صفحه اصلی</a></li>
-                <li><a href="">پست های تکی</a></li>
-                <li><a href="">پست های سریالی</a></li>
-                <li><a href="">منابع وبلاگ</a></li>
-                <li><a href="">ارتباط با مدیریت</a></li>
-                <li><a href="">درباره وبلاگ</a></li>
+                <li><a href="{% url 'config:index' %}" class="hover:border-b-4 border-b-blue-700">صفحه اصلی</a></li>
+                <li><a href="{% url 'post:single_posts' %}" class="hover:border-b-4 border-b-blue-700">پست های تکی</a>
+                </li>
+                <li><a href="{% url 'post:serie_posts' %}" class="hover:border-b-4 border-b-blue-700">پست های سریالی</a>
+                </li>
+                <li><a href="{% url 'config:references' %}" class="hover:border-b-4 border-b-blue-700">منابع وبلاگ</a>
+                </li>
+                <li><a href="{% url 'config:contact' %}" class="hover:border-b-4 border-b-blue-700">ارتباط با مدیریت</a>
+                </li>
+                <li><a href="{% url 'config:about' %}" class="hover:border-b-4 border-b-blue-700">درباره وبلاگ</a></li>
             </ul>
         </div>
     </div>

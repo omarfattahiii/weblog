@@ -21,21 +21,15 @@ header ul li {
     padding-left: 10px;
 }
 
-nav {
-    background-color: rgb(2 6 23);
-}
-
 nav ul li {
     display: inline-block;
     padding: 15px;
 }
 
 /* footer.html */
-footer {
-    background-color: rgb(2 6 23);
-}
-
 footer ul li {
     display: inline-block;
     padding: 15px;
 }
+
+/* single_posts.html */
