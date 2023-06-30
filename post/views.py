@@ -4,13 +4,13 @@ from django.urls import reverse
 from django.contrib import messages
 from .models import SinglePost, SeriePost, SeriePostPart, UpdateRequest
 
-def posts(request):
-    single = SinglePost.objects.filter(is_published=True).order_by("-up_date", "-pub_date")
-    serie = SeriePost.objects.filter(is_published=True).order_by("-up_date", "-pub_date")
-    context = {'single': single, 'serie': serie}
-    template_name = 'post/posts.html'
+# def posts(request):
+#     single = SinglePost.objects.filter(is_published=True).order_by("-up_date", "-pub_date")
+#     serie = SeriePost.objects.filter(is_published=True).order_by("-up_date", "-pub_date")
+#     context = {'single': single, 'serie': serie}
+#     template_name = 'post/posts.html'
 
-    return render(request, template_name, context)
+#     return render(request, template_name, context)
 
 def single_posts(request):
     objects = SinglePost.objects.filter(is_published=True).order_by("-up_date", "-pub_date")
