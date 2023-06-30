@@ -1,3 +1,32 @@
-{% block sidebar %}
-{% endblock sidebar %}
-    
+{% load poll %} {% load post %} {% load tag %} {% block sidebar %}
+<div class="search-form pb-4 text-white border-b-2">
+  <p class="text-2xl pb-5">جستجوی پست</p>
+  <form action="{% url 'config:search' %}" method="post">
+    {% csrf_token %}
+    <input
+      class="cursor-pointer bg-slate-800"
+      placeholder="اینجا جستجو کنید . . ."
+      type="search"
+      name="search-input"
+      id="search-input"
+    />
+    <input class="cursor-pointer" type="submit" value="جستجو" />
+  </form>
+</div>
+
+{% last_poll %} {% last_serie_post %}
+<div class="subscribe-form pb-10 pt-4 text-white border-b-2">
+  <p class="text-2xl pb-5">ثبت نام در فید ماهیانه</p>
+  <form action="{% url 'subscribe:submit' %}" method="post">
+    {% csrf_token %}
+    <input
+      class="cursor-pointer bg-slate-800"
+      placeholder="ایمیل خود را وارد کنید . . ."
+      type="email"
+      name="subscribe-input"
+      id="subscribe-input"
+    />
+    <input class="cursor-pointer" type="submit" value="ثبت نام" />
+  </form>
+</div>
+{% last_single_post %} {% all_tags %} {% endblock sidebar %}

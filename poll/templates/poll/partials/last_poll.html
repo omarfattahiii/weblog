@@ -1,0 +1,11 @@
+<div class="last_poll pb-4 pt-4 text-white border-b-2">
+  <p class="text-2xl pb-5">نظرسنجی جدید</p>
+  <form action="" method="post">
+    <h1>{{ poll }}</h1>
+    {% for option in poll_option %}
+    <input type="radio" name="last_poll" id="{{ option.id }}" />
+    <label for="{{ option.id }}">{{ option.title }}</label> <br />
+    {% endfor %}
+    <input class="cursor-pointer" type="submit" value="ثبت نظر" />
+  </form>
+</div>
