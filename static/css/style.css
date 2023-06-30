@@ -1,0 +1,41 @@
+/* layout.html */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Vazir FD-WOL", "Vazir Code";
+    color: #fff;
+}
+
+body {
+    box-sizing: border-box;
+}
+
+/* header.html */
+header {
+    background-color: rgb(51 65 85);
+}
+
+header ul li {
+    display: inline-block;
+    padding: 3px;
+    padding-left: 10px;
+}
+
+nav {
+    background-color: rgb(2 6 23);
+}
+
+nav ul li {
+    display: inline-block;
+    padding: 15px;
+}
+
+/* footer.html */
+footer {
+    background-color: rgb(2 6 23);
+}
+
+footer ul li {
+    display: inline-block;
+    padding: 15px;
+}
