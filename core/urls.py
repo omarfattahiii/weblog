@@ -14,15 +14,12 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('config.urls')),
 
-    path('posts/', include('post.urls')),
-    path('categories/', include('category.urls')),
-    path('polls/', include('poll.urls')),
+    path('psts/', include('post.urls')),
+    path('ctgrs/', include('category.urls')),
+    path('plls/', include('poll.urls')),
     path('subscribe/', include('subscriber.urls')),
-    path('advertisings/', include('advertising.urls')),
-    path('presentations/', include('presentation.urls')),
+    path('prsntns/', include('presentation.urls')),
 
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
-
-    path('tinymce/', include('tinymce.urls')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
