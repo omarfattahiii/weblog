@@ -1,10 +1,8 @@
-## ToDo:Developer --> BackEnd
+## ToDo: BackEnd
 
-1. Comment System
-2. roboto.txt
-3. API key's
+1. complet Comment System
+2. create roboto.txt
+3. build API key's
+4. create RSS Feed
 
-## ToDo:Developer --> FrontEnd
-
-4. html4 to html5
-3. canonical html tag
+## ToDo: FrontEnd
