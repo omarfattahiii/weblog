@@ -1,37 +1,87 @@
-<header>
-    <div class="flex justify-between select-none bg-slate-900">
-        <div>
-            <ul>
-                <li><a href="{% url 'config:signin' %}" class="hover:border-b-4 border-b-blue-900">ورود</a></li>
-                <li><a href="{% url 'config:signup' %}" class="hover:border-b-4 border-b-blue-900">ثبت نام</a></li>
-                <li>نام کاربری</a></li>
-            </ul>
-        </div>
-        <div>
-            <ul>
-                <li><a href="/admin/" class="hover:border-b-4 border-b-blue-900">مدیریت</a></li>
-                <li><a href="{% url 'config:signout' %}" class="hover:border-b-4 border-b-blue-900">خروج</a></li>
-                <li><a href="" class="hover:border-b-4 border-b-blue-900">فید</a></li>
-            </ul>
-        </div>
-    </div>
-</header>
-
-<nav>
-    <div class="flex justify-between mb-10 select-none bg-slate-800">
-        <div>
-            <ul>
-                <li><a href="{% url 'config:index' %}" class="hover:border-b-4 border-b-blue-700">صفحه اصلی</a></li>
-                <li><a href="{% url 'post:single_posts' %}" class="hover:border-b-4 border-b-blue-700">پست های تکی</a>
-                </li>
-                <li><a href="{% url 'post:serie_posts' %}" class="hover:border-b-4 border-b-blue-700">پست های سریالی</a>
-                </li>
-                <li><a href="{% url 'config:references' %}" class="hover:border-b-4 border-b-blue-700">منابع وبلاگ</a>
-                </li>
-                <li><a href="{% url 'config:contact' %}" class="hover:border-b-4 border-b-blue-700">ارتباط با مدیریت</a>
-                </li>
-                <li><a href="{% url 'config:about' %}" class="hover:border-b-4 border-b-blue-700">درباره وبلاگ</a></li>
-            </ul>
-        </div>
-    </div>
+<nav class="py-0 bg-body-tertiary border-bottom px-3">
+  <div class="d-flex flex-wrap">
+    <ul class="nav me-auto">
+      <li class="nav-item">
+        <a href="#" class="nav-link link-body-emphasis px-2">ورود به حساب</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link link-body-emphasis px-2">ثبت یک حساب</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link link-body-emphasis px-2"
+          >خوش آمدید کاربر عزیز</a
+        >
+      </li>
+    </ul>
+    <ul class="nav">
+      <li class="nav-item">
+        <a href="#" class="nav-link link-body-emphasis px-2">مدیریت</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link link-body-emphasis px-2">خروج از حساب</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link link-body-emphasis px-2">اشتراک فید</a>
+      </li>
+    </ul>
+  </div>
 </nav>
+
+<header class="p-3 mb-5">
+  <div
+    class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start"
+  >
+    <ul
+      class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0"
+    >
+      <li>
+        <a href="{% url 'config:index' %}" class="nav-link px-2">صفحه اول</a>
+      </li>
+      <li>
+        <a href="{% url 'post:single_posts' %}" class="nav-link px-2"
+          >پست های تکی</a
+        >
+      </li>
+      <li>
+        <a href="{% url 'post:serie_posts' %}" class="nav-link px-2"
+          >پست های سریالی</a
+        >
+      </li>
+      <li>
+        <a href="{% url 'category:parent_categories' %}" class="nav-link px-2"
+          >دسته بندی ها</a
+        >
+      </li>
+      <li>
+        <a href="{% url 'config:references' %}" class="nav-link px-2"
+          >منابع وبلاگ</a
+        >
+      </li>
+      <li>
+        <a href="{% url 'config:contact' %}" class="nav-link px-2"
+          >ارتباط با مدیریت</a
+        >
+      </li>
+      <li>
+        <a href="{% url 'config:about' %}" class="nav-link px-2"
+          >درباره وبلاگ</a
+        >
+      </li>
+    </ul>
+
+    <form
+      class="col-8 col-lg-auto mb-3 mb-lg-0 me-lg-3"
+      action="{% url 'config:search' %}"
+      method="post"
+      role="search"
+    >
+      {% csrf_token %}
+      <input
+        type="search"
+        class="form-control rounded-0"
+        placeholder="اینجا جستجو کنید . . ."
+        aria-label="Search"
+      />
+    </form>
+  </div>
+</header>
