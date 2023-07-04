@@ -1,4 +1,22 @@
+/* Scroll Bar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #fbfbfb;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #000;
+}
+
 /* layout.html */
 * {
-    font-family: "Vazir FD-WOL", 'Roboto';
+  font-family: "Vazir FD-WOL", "Roboto";
 }

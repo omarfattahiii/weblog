@@ -1,35 +1,46 @@
 {% extends "layout.html" %} {% load jalali_tags %} {% block content %}
-<h1 class="text-2xl text-center pb-4">لیست پست های تکی</h1>
-<p class="text-center text-sm pb-6 text-yellow-300">
-  «پست ها از جدیدترین به قدیمی ترین لیست شده اند»
-</p>
-<hr />
-<div class="list-posts pt-10">
-  <table class="table-fixed text-center">
-    <caption class="caption-bottom text-sm font-thin text-blue-300">
-        «لیست پست های تکی وبلاگ»
-    </caption>
-    <thead>
-      <tr>
-        <th class="px-8 pb-4">پست</th>
-        <th class="px-8 pb-4">انتشار</th>
-        <th class="px-8 pb-4">بروز رسانی</th>
-        <th class="px-8 pb-4">دسته بندی</th>
-        <th class="px-8 pb-4">برچسب</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for post in objects %}
-      <tr>
-        <td class="px-8"><a href="{% url 'post:single_posts_detail' post.id %}">{{ post.title }}</a></td>
-        <td class="px-8">{{ post.pub_date|to_jalali:'%Y/%m/%d' }}</td>
-        <td class="px-8">{{ post.up_date|to_jalali:'%Y/%m/%d' }}</td>
-        <td class="px-8">{% for category in post.category.all %} - {{ category.title }}{% endfor %}</td>
-        <td class="px-8">{% for tag in post.tag.all %}{{ tag.title }} - {% endfor %}</td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-</div>
 
+<p class="fs-1 text-center m-0 text-decoration-underline link-offset-1 fw-bold">
+  پست های تکی
+</p>
+<p
+  class="fs-6 text-center mb-5 link-offset-1 fw-bold"
+>
+  پست ها به ترتیب انتشار لیست شده اند
+</p>
+
+<div class="row">
+  {% for post in objects %}
+  <div
+    class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-4 col-xxl-3 px-1 py-1"
+  >
+    <div class="card">
+      <div class="card-body">
+        <h1 class="card-title fs-3">{{ post.title }}</h1>
+        <hr class="pt-2 pb-2" />
+        <section class="card-subtitle text-body-secondary">
+          <p class="d-flex justify-content-between p-0 m-0">
+            <span class="fw-bolder">انتشار</span>
+            <time class="fw-light"
+              >{{ post.pub_date|to_jalali:'%Y/%m/%d' }}</time
+            >
+          </p>
+          <p class="d-flex justify-content-between p-0 m-0">
+            <span class="fw-bolder">بروزرسانی</span>
+            <time class="fw-light"
+              >{{ post.up_date|to_jalali:'%Y/%m/%d' }}</time
+            >
+          </p>
+          <br />
+        </section>
+        <a
+          href="{% url 'post:single_posts_detail' post.id %}"
+          class="card-link fw-bolder text-warning"
+          >«مطالعه پست»</a
+        >
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
 {% endblock content %}

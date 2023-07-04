@@ -1,11 +1,11 @@
 from django.contrib import admin
-from .models import Configuration, Notic, Reference, Contact, News
+from .models import Configuration, Notic, Reference, Contact, Subscriber
 
 admin.site.register(Configuration)
 admin.site.register(Notic)
 admin.site.register(Reference)
 admin.site.register(Contact)
-admin.site.register(News)
+admin.site.register(Subscriber)
 
 admin.site.site_title = "WeBlog"
 admin.site.site_header = "WeBlog Manager | Admin Panel"

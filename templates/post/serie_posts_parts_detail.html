@@ -1,0 +1,99 @@
+{% extends "layout.html" %} {% load jalali_tags %} {% block content %}
+<article>
+  <h3 class="fs-1 mb-5 text-center fw-bolder user-select-none">
+    <span class="fs-6 user-select-none">«قسمت {{ object.part }}»</span> {{ object.title }}
+  </h3>
+
+  <ul class="nav nav-tabs nav-justified mb-5" id="ex1" role="tablist">
+    <li class="nav-item" role="presentation">
+      <a
+        class="nav-link active user-select-none"
+        id="contents"
+        data-mdb-toggle="tab"
+        href="#content"
+        role="tab"
+        aria-controls="content"
+        aria-selected="true"
+        >متن مطلب</a
+      >
+    </li>
+    <li class="nav-item" role="presentation">
+      <a
+        class="nav-link user-select-none"
+        id="infos"
+        data-mdb-toggle="tab"
+        href="#info"
+        role="tab"
+        aria-controls="info"
+        aria-selected="false"
+        >اطلاعات</a
+      >
+    </li>
+    <li class="nav-item" role="presentation">
+      <a
+        class="nav-link user-select-none"
+        id="comments"
+        data-mdb-toggle="tab"
+        href="#comment"
+        role="tab"
+        aria-controls="comment"
+        aria-selected="false"
+        >نظرات</a
+      >
+    </li>
+  </ul>
+
+  <div class="tab-content" id="ex2-content">
+    <div
+      class="tab-pane fade show active"
+      id="content"
+      role="tabpanel"
+      aria-labelledby="content"
+    >
+      <p class="text-break">{{ object.content|safe }}</p>
+    </div>
+    <div class="tab-pane fade" id="info" role="tabpanel" aria-labelledby="info">
+      <p class="d-flex justify-content-between p-0 m-0">
+        <span class="fw-bolder">انتشار</span>
+        <time class="fw-light">{{ object.pub_date|to_jalali:'%Y/%m/%d' }}</time>
+      </p>
+      <p class="d-flex justify-content-between p-0 m-0">
+        <span class="fw-bolder">بروزرسانی</span>
+        <time class="fw-light">{{ object.up_date|to_jalali:'%Y/%m/%d' }}</time>
+      </p>
+      <p class="d-flex justify-content-between p-0 m-0">
+        <span class="fw-bolder">پست</span>
+        <a href="{% url 'post:serie_posts_detail' object.seriepost.id %}"
+          >{{ object.seriepost }}</a
+        >
+      </p>
+    </div>
+    <div
+      class="tab-pane fade"
+      id="comment"
+      role="tabpanel"
+      aria-labelledby="comment"
+      >
+      <p class="fs-3 fw-bolder text-center">15 نظر</p>
+
+      <form>
+        <div class="form-outline mb-4">
+          <textarea class="form-control" id="form4Example3" rows="4"></textarea>
+          <label class="form-label" for="form4Example3"
+            >نظر خود را اینجا بنویسید</label
+          >
+        </div>
+        <button type="submit" class="btn btn-warning btn-block mb-5">
+          ارسال
+        </button>
+      </form>
+      <hr>
+      
+      {% for comment in comments %}
+        {{ comment.content }}
+      {% endfor %}
+        
+    </div>
+  </div>
+</article>
+{% endblock content %}

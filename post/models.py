@@ -17,6 +17,7 @@ class SinglePost(models.Model):
     author = models.ForeignKey(User, default=True, on_delete=models.CASCADE)
     is_published = models.BooleanField(default=True)
     tag = models.ManyToManyField(Tags, related_name="single_post_tag")
+    comment = models.ManyToManyField("Comments", related_name="single_post")
 
     class Meta:
         verbose_name = "Single Post"
@@ -60,6 +61,7 @@ class SeriePostPart(models.Model):
     up_date = models.DateTimeField(auto_now=True)
     is_published = models.BooleanField(default=True)
     author = models.ForeignKey(User, default=True, on_delete=models.CASCADE)
+    comment = models.ManyToManyField("Comments", related_name="serie_post")
 
     class Meta:
         verbose_name = "Seire Post Part"
@@ -67,6 +69,21 @@ class SeriePostPart(models.Model):
 
     def __str__(self):
         return f"{self.title} | {self.seriepost}"
+
+
+class Comments(models.Model):
+    single = models.ForeignKey("SinglePost", on_delete=models.CASCADE, null=True, blank=True)
+    serie = models.ForeignKey("SeriePostPart", on_delete=models.CASCADE, null=True, blank=True)
+    username = models.ForeignKey(User, on_delete=models.CASCADE, related_name="comment_user")
+    content = models.TextField()
+    pub_date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.username}-{self.content[:30]}"
+
+    class Meta:
+        verbose_name = "Comment"
+        verbose_name_plural = "Comment's"
 
 
 class UpdateRequest(models.Model):

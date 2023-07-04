@@ -1,6 +1,7 @@
 from django.contrib import admin
-from .models import SinglePost, SeriePostPart, SeriePost, UpdateRequest
+from .models import SinglePost, SeriePostPart, SeriePost, Comments, UpdateRequest
 
+admin.site.register(Comments)
 admin.site.register(UpdateRequest)
 
 class SeriePostPartInline(admin.TabularInline):

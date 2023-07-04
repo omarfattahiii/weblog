@@ -1,33 +1,4 @@
-<footer class="bg-light text-center">
+<footer class="bg-light text-center mt-5 py-2">
   <hr />
-  <div class="container p-4 pb-0">
-    <section>
-      <form action="{% url 'subscribe:submit' %}" method="post">
-        {% csrf_token %}
-        <div class="row d-flex justify-content-center">
-          <div class="col-auto">
-            <p class="pt-2">
-              <strong>عضویت در اشتراک فید</strong>
-            </p>
-          </div>
-          <div class="col-md-5 col-12">
-            <div class="form-outline mb-4">
-              <input type="email" name="email" id="form5Example27" class="form-control" />
-              <label class="form-label" for="form5Example27"
-                >آدرس ایمیل</label
-              >
-            </div>
-          </div>
-          <div class="col-auto">
-            <button type="submit" class="btn btn-primary mb-4">
-              مشترک شدن
-            </button>
-          </div>
-        </div>
-      </form>
-    </section>
-  </div>
-  <div class="text-center p-3">
-    <a href="https://www.gnu.org/gnu/gnu.html">The GNU General Public License</a>
-  </div>
+  <a href="https://www.gnu.org/gnu/gnu.html">The GNU General Public License</a>
 </footer>

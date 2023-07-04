@@ -1,3 +1,23 @@
-{% extends "layout.html" %}
-{% block content %}
+{% extends "layout.html" %} {% block content %}
+<div class="px-4 py-5 my-5 text-center">
+  <h1 class="display-5 fw-bold text-body-emphasis">نام وبلاگ</h1>
+  <div class="col-lg-6 mx-auto">
+    <p class="lead mb-4 fw-bolder">
+      در «نام وبلاگ» پست هایی به دو صورت سریالی و تکی نوشته می شوند. به این صورت که در پست های سریالی مطالب دارای قسمت بندی هستند. اما در پست های تکی خیر. میتوانید هر کدام را که می دانید مشاهده کنید.
+    </p>
+    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+
+      <form action="{% url 'post:single_posts' %}">
+        <button type="submit" class="btn btn-dark btn-lg px-4">
+          پست های تکی
+        </button>
+
+      <form action="{% url 'post:serie_posts' %}">
+        <button type="submit" class="btn btn-warning btn-lg px-4">
+          پست های سریالی
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
 {% endblock content %}

@@ -36,14 +36,11 @@ INSTALLED_APPS = [
     'jalali_date',
 
     'post.apps.PostConfig',
-    'comment.apps.CommentConfig',
     'category.apps.CategoryConfig',
     'config.apps.ConfigConfig',
     'poll.apps.PollConfig',
-    'subscriber.apps.SubscriberConfig',
     'tag.apps.TagConfig',
     'presentation.apps.PresentationConfig',
-    'advertising.apps.AdvertisingConfig',
 ]
 
 MIDDLEWARE = [

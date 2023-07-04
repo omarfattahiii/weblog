@@ -2,14 +2,16 @@ from django.db import models
 from ckeditor.fields import RichTextField
 from post.models import SinglePost, SeriePost
 
+
 class Configuration(models.Model):
-    site_title = models.TextField()
-    site_header = models.TextField()
-    site_about = models.TextField()
-    meta_description = models.TextField()
-    meta_author = models.TextField()
-    meta_revised = models.DateTimeField(auto_now=True)
-    favicon = models.ImageField(upload_to="weblog/configuration/favicon", blank=False, null=False)
+    site_title = models.TextField(blank=True, null=True)
+    site_header = models.TextField(blank=True, null=True)
+    site_about = models.TextField(blank=True, null=True)
+    meta_description = models.TextField(blank=True, null=True)
+    meta_author = models.TextField(blank=True, null=True)
+    meta_revised = models.DateTimeField(auto_now=True, blank=True, null=True)
+    favicon = models.ImageField(
+        upload_to="weblog/configuration/favicon", blank=False, null=False)
 
     class Meta:
         verbose_name = "WebLog Configuration"
@@ -58,12 +60,12 @@ class Contact(models.Model):
         return f"{self.name} - {self.subject[:50]}"
 
 
-class News(models.Model):
-    content = RichTextField()
-
-    class Meta:
-        verbose_name = "News"
-        verbose_name_plural = "News's"
+class Subscriber(models.Model):
+    email = models.CharField(max_length=255)
 
     def __str__(self):
-        return self.content[:50]
+        return self.email
+
+    class Meta:
+        verbose_name = "Subscriber"
+        verbose_name_plural = "Subscriber's"

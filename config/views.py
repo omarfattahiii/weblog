@@ -2,11 +2,10 @@ from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib.auth.hashers import make_password
-from decouple import config
 from django.urls import reverse
 from django.contrib import messages
 from django.http import HttpResponseRedirect
-from .models import Contact, Reference
+from .models import Contact, Reference, Subscriber
 from post.models import SinglePost, SeriePost
 
 
@@ -15,10 +14,12 @@ def index(request):
     template_name = 'index.html'
     return render(request, template_name, context)
 
+
 def about(request):
     context = {}
     template_name = 'config/about.html'
     return render(request, template_name, context)
+
 
 def contact(request):
     if request.method == "POST":
@@ -27,7 +28,8 @@ def contact(request):
         subject = request.POST["subject"]
         message = request.POST["message"]
 
-        new_contact = Contact.objects.create(name=name, email=email, subject=subject, message=message)
+        new_contact = Contact.objects.create(
+            name=name, email=email, subject=subject, message=message)
         new_contact.save()
 
         # RAYGANSMS = "https://RayganSMS.com/SendMessageWithPost.ashx"
@@ -53,6 +55,7 @@ def reference(request):
     template_name = 'config/reference.html'
     return render(request, template_name, context)
 
+
 def search(request):
     if request.method == 'GET':
         query = request.GET['q']
@@ -63,6 +66,7 @@ def search(request):
 
     template_name = 'config/search.html'
     return render(request, template_name, context)
+
 
 def signUp(request):
     if request.user.is_authenticated:
@@ -79,7 +83,8 @@ def signUp(request):
             else:
                 password_hash = make_password(password)
 
-                new_user = User.objects.create(username=username, email=email, password=password_hash)
+                new_user = User.objects.create(
+                    username=username, email=email, password=password_hash)
                 new_user.is_active = True
                 new_user.save()
 
@@ -88,9 +93,9 @@ def signUp(request):
 
                 return HttpResponseRedirect(reverse('config:index'))
 
-
-    template_name = 'registration/signup.html'
+    template_name = 'config/registration/signup.html'
     return render(request, template_name, {})
+
 
 def signIn(request):
     if request.user.is_authenticated:
@@ -108,9 +113,10 @@ def signIn(request):
                     login(request, user)
                     return HttpResponseRedirect(reverse('config:index'))
                 except:
-                    messages.error(request, "نام کاربری یا رمز عبور اشتباه است.")
+                    messages.error(
+                        request, "نام کاربری یا رمز عبور اشتباه است.")
                     return HttpResponseRedirect(reverse('config:signin'))
-    template_name = 'registration/signin.html'
+    template_name = 'config/registration/signin.html'
     return render(request, template_name, {})
 
 
@@ -120,4 +126,14 @@ def signOut(request):
     else:
         logout(request)
 
+    return HttpResponseRedirect(reverse('config:index'))
+
+
+def subscribed(request):
+    if request.method == 'POST':
+        email = request.POST['email']
+        new_email = Subscriber.objects.create(email=email)
+        new_email.save()
+
+        messages.success(request, 'منتظر ایمیل از طرف ما باشید!')
     return HttpResponseRedirect(reverse('config:index'))

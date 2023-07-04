@@ -17,7 +17,6 @@ urlpatterns = [
     path('psts/', include('post.urls')),
     path('ctgrs/', include('category.urls')),
     path('plls/', include('poll.urls')),
-    path('subscribe/', include('subscriber.urls')),
     path('prsntns/', include('presentation.urls')),
 
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
