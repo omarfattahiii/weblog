@@ -3,26 +3,30 @@
 <html lang="fa" dir="rtl">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>WeBlog</title>
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+    />
+    <link rel="stylesheet" href="{% static 'css/mdb.rtl.min.css' %}" />
   </head>
-
-  <body class="bg-slate-950">
-    {% include "include/header.html" %}
-    <div class="container mx-auto">
-      <div class="grid grid-cols-4 gap-4">
-        <div class="sidebar col-span-1 pl-1">
-          {% include "include/sidebar.html" %}
-        </div>
-        <div class="content container mx-auto pr-20 col-span-3 text-justify pl-1">
-          {% block content %}{% endblock content %}
-        </div>
-      </div>
-    </div>
+  <body>
+    {% include "include/header.html" %} {% include "include/sidebar.html" %}
+    <div class="container">{% block content %}{% endblock content %}</div>
     {% include "include/footer.html" %}
-    <script src="{% static 'js/script.js' %}"></script>
+
+    <script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script>
+    <script type="text/javascript"></script>
   </body>
 </html>
