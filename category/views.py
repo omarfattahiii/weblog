@@ -9,3 +9,11 @@ def parent_category(request):
     template_name = 'category/parent_categories.html'
 
     return render(request, template_name, context)
+
+
+def child_category(request, id):
+    child = Category.objects.get(pk=id)
+    context = {'child': child}
+    template_name = 'category/child_categories.html'
+
+    return render(request, template_name, context)
