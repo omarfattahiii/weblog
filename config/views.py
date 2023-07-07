@@ -52,7 +52,7 @@ def reference(request):
     reference = Reference.objects.all()
     context = {'reference': reference}
 
-    template_name = 'config/reference.html'
+    template_name = 'config/references.html'
     return render(request, template_name, context)
 
 
@@ -66,6 +66,10 @@ def search(request):
 
     template_name = 'config/search.html'
     return render(request, template_name, context)
+
+
+def profile(reqeust):
+    pass
 
 
 def signUp(request):

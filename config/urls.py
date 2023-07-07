@@ -5,14 +5,15 @@ from . import views
 app_name = "config"
 urlpatterns = [
     path('', views.index, name='index'),
-    path('search/', views.search, name="search"),
-    path('contact/', views.contact, name='contact'),
-    path('about/', views.about, name='about'),
-    path('references/', views.reference, name='references'),
+    path('srch/', views.search, name="search"),
+    path('cntct/', views.contact, name='contact'),
+    path('abut/', views.about, name='about'),
+    path('rfnc/', views.reference, name='references'),
 
-    path('subscribed/', views.subscribed, name='subscribed'),
+    path('sbscbr/', views.subscribed, name='subscribed'),
 
-    path('account/signup/', views.signUp, name='signup'),
-    path('account/signin/', views.signIn, name='signin'),
-    path('account/signout/', views.signOut, name='signout'),
+    path('acnt/prfl/', views.profile, name='profile'),
+    path('acnt/sinup/', views.signUp, name='signup'),
+    path('acnt/sinin/', views.signIn, name='signin'),
+    path('acnt/sinot/', views.signOut, name='signout'),
 ]

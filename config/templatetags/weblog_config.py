@@ -3,15 +3,17 @@ from config.models import Configuration, Notic
 
 register = template.Library()
 
+
+@register.inclusion_tag("config/partials/note.html")
+def notic():
+    notes = Notic.objects.all()
+    context = {'notes': notes}
+
+    return context
+
+
 try:
     config = Configuration.objects.get(id=1)
-
-    @register.inclusion_tag("config/partials/note.html")
-    def notic():
-        notes = Notic.objects.all()
-        context = {'notes': notes}
-
-        return context
 
     @register.simple_tag
     def site_title():
@@ -19,20 +21,17 @@ try:
 
         return title
 
-
     @register.simple_tag
     def site_header():
         header = config.site_header
 
         return header
 
-
     @register.simple_tag
     def meta_description():
         description = config.meta_description
 
         return description
-
 
     @register.simple_tag
     def meta_author():
@@ -58,5 +57,5 @@ try:
 
         return favicon
 
-except Exception:
-    print(Exception)
+except:
+    print("Configuration Obj Does not Exist.")

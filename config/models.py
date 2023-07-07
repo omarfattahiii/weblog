@@ -33,9 +33,9 @@ class Notic(models.Model):
 
 
 class Reference(models.Model):
-    single_post = models.ManyToManyField(SinglePost, blank=True)
-    serie_post = models.ManyToManyField(SeriePost, blank=True)
-    url = models.TextField()
+    single_post = models.ForeignKey(SinglePost, on_delete=models.CASCADE, blank=True, null=True)
+    serie_post = models.ForeignKey(SeriePost, on_delete=models.CASCADE, blank=True, null=True)
+    url = models.URLField(max_length=255)
 
     class Meta:
         verbose_name = "Post Reference"
