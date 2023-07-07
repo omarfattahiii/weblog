@@ -1,19 +1,10 @@
 {% extends "layout.html" %} {% load jalali_tags %} {% block content %}
-
-<h1 class="fs-1 text-center m-0 fw-bold">
-    {{ object.title }}
+<h1 class="fs-1 text-center m-0 fw-bold">{{ object.title }}
 </h1>
-<h6
-  class="fs-6 text-center mb-5 mt-2 link-offset-1 fw-light"
->
-  «{{ object.description|safe }}»
+<h6 class="fs-6 text-center mb-5 mt-2 link-offset-1 fw-light">«{{ object.description|safe }}»
 </h6>
-
-<div class="row">
-  {% for part in object_parts %}
-  <div
-    class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-4 col-xxl-3 px-1 py-1"
-  >
+<div class="row">{% for part in object_parts %}
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-4 col-xxl-3 px-1 py-1">
     <div class="card">
       <div class="card-body">
         <h1 class="card-title fs-4">{{ part.part }}. {{ part.title }}</h1>
@@ -21,26 +12,16 @@
         <section class="card-subtitle text-body-secondary">
           <p class="d-flex justify-content-between p-0 m-0">
             <span class="fw-bolder">انتشار</span>
-            <time class="fw-light"
-              >{{ part.pub_date|to_jalali:'%Y/%m/%d' }}</time
-            >
+            <time class="fw-light">{{ part.pub_date|to_jalali:'%Y/%m/%d' }}</time>
           </p>
           <p class="d-flex justify-content-between p-0 m-0">
             <span class="fw-bolder">بروزرسانی</span>
-            <time class="fw-light"
-              >{{ part.up_date|to_jalali:'%Y/%m/%d' }}</time
-            >
+            <time class="fw-light">{{ part.up_date|to_jalali:'%Y/%m/%d' }}</time>
           </p>
           <br />
         </section>
-        <a
-          href="{% url 'post:serie_posts_parts_detail' object.id part.id %}"
-          class="card-link fw-bolder text-warning"
-          >«شروع خواندن»</a
-        >
+        <a href="{% url 'post:serie_posts_parts_detail' object.id part.id %}" class="card-link fw-bolder text-warning">«شروع خواندن»</a>
       </div>
     </div>
-  </div>
-  {% endfor %}
-</div>
-{% endblock content %}
+  </div>{% endfor %}
+</div>{% endblock content %}

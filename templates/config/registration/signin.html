@@ -1,31 +1,17 @@
 {% extends "layout.html" %} {% block content %}
-
 <p class="fs-4 fw-bolder text-center">ورود به حساب</p>
-
 <form action="{% url 'config:signin' %}" method="post">
   {% csrf_token %}
-  <!-- Email input -->
   <div class="form-outline mb-4">
     <input type="text" name="username" id="loginName" class="form-control" />
     <label class="form-label" for="loginName">نام کاربری</label>
   </div>
-
-  <!-- Password input -->
   <div class="form-outline mb-4">
-    <input
-      type="password"
-      name="password"
-      id="loginPassword"
-      class="form-control"
-    />
+    <input type="password" name="password" id="loginPassword" class="form-control" />
     <label class="form-label" for="loginPassword">رمز ورود</label>
   </div>
-
-  <!-- Submit button -->
   <button type="submit" class="btn btn-dark fs-6 btn-block mb-4">
     ورود به حساب
   </button>
 </form>
-<!-- Pills content -->
-
 {% endblock content %}

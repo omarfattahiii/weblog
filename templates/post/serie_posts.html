@@ -16,15 +16,11 @@
       <p><strong>توضیح مختصر</strong> {{ post.description|truncatewords:20 }}</p>
       <p>
         <strong>انتشار</strong>
-        <time datetime="{{ post.pub_date|date:'Y-m-d H:i:s' }}"
-          >{{ post.pub_date|to_jalali:'%Y/%m/%d' }}</time
-        >
+        <time datetime="{{ post.pub_date|date:'Y-m-d H:i:s' }}">{{ post.pub_date|to_jalali:'%Y/%m/%d' }}</time>
       </p>
       <p>
         <strong>بروزرسانی</strong>
-        <time datetime="{{ post.up_date|date:'Y-m-d H:i:s' }}"
-          >{{ post.up_date|to_jalali:'%Y/%m/%d' }}</time
-        >
+        <time datetime="{{ post.up_date|date:'Y-m-d H:i:s' }}">{{ post.up_date|to_jalali:'%Y/%m/%d' }}</time>
       </p>
       <p>
         <strong>دسته بندی</strong>
@@ -39,11 +35,7 @@
         {% endfor %}
       </p>
     </section>
-    <a
-      href="{% url 'post:serie_posts_detail' post.id %}"
-      class="card-link fw-bolder text-warning"
-      >«مطالعه پست»</a
-    >
+    <a href="{% url 'post:serie_posts_detail' post.id %}" class="card-link fw-bolder text-warning">«مطالعه پست»</a>
   </div>
 </div>
 {% endfor %} {% endblock content %}

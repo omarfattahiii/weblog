@@ -7,9 +7,7 @@
         {% if child.single_post.all %} {% for single in child.single_post.all %}
         <ul class="list-group list-group-flush">
           <li class="list-group-item">
-            <a href="{% url 'post:single_posts_detail' single.id %}"
-              >{{ single.title }}</a
-            >
+            <a href="{% url 'post:single_posts_detail' single.id %}">{{ single.title }}</a>
             <hr>
           </li>
         </ul>
@@ -28,9 +26,7 @@
         {% if child.serie_post.all %} {% for serie in child.serie_post.all %}
         <ul class="list-group list-group-flush">
           <li class="list-group-item">
-            <a href="{% url 'post:serie_posts_detail' serie.id %}"
-              >{{ serie.title }}</a
-            >
+            <a href="{% url 'post:serie_posts_detail' serie.id %}">{{ serie.title }}</a>
             <hr>
           </li>
         </ul>

@@ -1,123 +1,74 @@
 <header>
-  <nav
-    class="navbar navbar-expand navbar-light user-select-none p-0 m-0 bg-white"
-  >
+  <nav class="navbar navbar-expand navbar-light user-select-none p-0 m-0 bg-white">
     <div class="container-fluid">
       <div>
-        <ul class="navbar-nav mb-2 mb-lg-0">
-          {% if user.is_authenticated %}
+        <ul class="navbar-nav mb-2 mb-lg-0">{% if user.is_authenticated %}
           <li class="nav-item">
             <a class="nav-link">پروفایل</a>
-          </li>
-          {% endif %}
+          </li>{% endif %}
         </ul>
       </div>
-
       <div>
-        <ul class="navbar-nav mb-2 mb-lg-0">
-          {% if not user.is_authenticated %}
+        <ul class="navbar-nav mb-2 mb-lg-0">{% if not user.is_authenticated %}
           <li class="nav-item">
-            <a
-              class="nav-link"
-              aria-current="page"
-              href="{% url 'config:signin' %}"
-              >ورود به حساب</a
-            >
+            <a class="nav-link" aria-current="page" href="{% url 'config:signin' %}">ورود به حساب</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'config:signup' %}">ثبت حساب</a>
-          </li>
-          {% endif %}
+          </li>{% endif %}
         </ul>
       </div>
-
       <div>
-        <ul class="navbar-nav mb-2 mb-lg-0">
-          {% if user.is_authenticated %}
+        <ul class="navbar-nav mb-2 mb-lg-0">{% if user.is_authenticated %}
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'config:signout' %}"
-              >خروج از حساب</a
-            >
-          </li>
-          {% endif %} {% if request.user.is_superuser %}
+            <a class="nav-link" href="{% url 'config:signout' %}">خروج از حساب</a>
+          </li>{% endif %} {% if request.user.is_superuser %}
           <li class="nav-item">
             <a class="nav-link" href="/admin/" target="_blank">پنل مدیریت</a>
-          </li>
-          {% endif %}
+          </li>{% endif %}
         </ul>
       </div>
     </div>
   </nav>
 </header>
-
-<nav
-  class="navbar navbar-expand-lg navbar-light bg-light user-select-none shadow-3-strong sticky-top mb-5"
->
+<nav class="navbar navbar-expand-lg navbar-light bg-light user-select-none shadow-3-strong sticky-top mb-5">
   <div class="container-fluid">
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-mdb-toggle="collapse"
-      data-mdb-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
+    <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <i class="fas fa-bars"></i>
     </button>
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <a class="navbar-brand mt-2 mt-lg-0" href="#">
-        <img
-          src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
-          height="15"
-          alt="MDB Logo"
-          loading="lazy"
-        />
+        <img src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp" height="15" alt="MDB Logo"
+          loading="lazy" />
       </a>
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link" href="{% url 'config:index' %}">صفحه اول</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'category:parent_categories' %}"
-            >دسته بندی</a
-          >
+          <a class="nav-link" href="{% url 'category:parent_categories' %}">دسته بندی</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'post:single_posts' %}"
-            >پست های تکی</a
-          >
+          <a class="nav-link" href="{% url 'post:single_posts' %}">پست های تکی</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'post:serie_posts' %}"
-            >پست های سریالی</a
-          >
+          <a class="nav-link" href="{% url 'post:serie_posts' %}">پست های سریالی</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'config:references' %}"
-            >منابع وبلاگ</a
-          >
+          <a class="nav-link" href="{% url 'config:references' %}">منابع وبلاگ</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{% url 'config:about' %}">درباره وبلاگ</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'config:contact' %}"
-            >ارتباط با مدیریت</a
-          >
+          <a class="nav-link" href="{% url 'config:contact' %}">ارتباط با مدیریت</a>
         </li>
       </ul>
     </div>
-
     <form class="input-group w-auto px-2">
-      <input
-        type="search"
-        class="form-control rounded"
-        placeholder="اینجا جستجو کنید"
-        aria-label="Search"
-        aria-describedby="search-addon"
-      />
+      <input type="search" class="form-control rounded" placeholder="اینجا جستجو کنید" aria-label="Search"
+        aria-describedby="search-addon" />
     </form>
   </div>
 </nav>

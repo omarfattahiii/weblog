@@ -2,23 +2,17 @@
 <div>
   <ol class="list-group list-group-light list-group-numbered">
     {% for post in serie %}
-    <li
-      class="list-group-item d-flex justify-content-between align-items-start"
-    >
+    <li class="list-group-item d-flex justify-content-between align-items-start">
       <div class="ms-2 me-auto">
         <div class="fw-bold">
-          <a href="{% url 'post:serie_posts_detail' post.id %}"
-            >{{ post.title }}</a
-          >
+          <a href="{% url 'post:serie_posts_detail' post.id %}">{{ post.title }}</a>
         </div>
         <summary>
           {{ post.description|truncatewords:10 }}
         </summary>
       </div>
       <span class="badge badge-primary rounded-pill">
-        <time class="fw-light" datetime="{{ post.pub_date|date:'Y-m-d H:i:s' }}"
-          >{{ post.pub_date|to_jalali:'%Y/%m/%d' }}</time
-        >
+        <time class="fw-light" datetime="{{ post.pub_date|date:'Y-m-d H:i:s' }}">{{ post.pub_date|to_jalali:'%Y/%m/%d' }}</time>
       </span>
     </li>
     {% endfor %}

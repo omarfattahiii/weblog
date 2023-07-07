@@ -1,34 +1,32 @@
-{% load static %}
+{% load static %} {% load weblog_config %}
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>WeBlog</title>
-    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
-    />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/base16/black-metal-khold.min.css"/>
-    <link rel="stylesheet" href="{% static 'css/mdb.rtl.min.css' %}" />
-  </head>
-  <body>
-    {% include "include/header.html" %}
-    <div class="container">{% block content %}{% endblock content %}</div>
-    {% include "include/footer.html" %}
 
-    <script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js" integrity="sha512-rdhY3cbXURo13l/WU9VlaRyaIYeJ/KBakckXIvJNAQde8DgpOmE+eZf7ha4vdqVjTtwQt69bD2wH2LXob/LB7Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>    <script>hljs.highlightAll();</script>
-    <script type="text/javascript"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <title>{% block title %}{% site_title %}{% endblock title %}</title>
+  <link href="{% block canonical %}{% endblock canonical %}" rel="canonical" />
+  <meta name="description" content="{% block description %}{% meta_description %}{% endblock description %}" />
+  <meta name="author" content="{% meta_author %}" />
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/base16/black-metal-khold.min.css" />
+  <link rel="stylesheet" href="{% static 'css/mdb.rtl.min.css' %}" />
+</head>
+
+<body>
+  {% include "include/header.html" %}
+  <div class="container">{% block content %}{% endblock content %}</div>{% include "include/footer.html" %}
+  <script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js" integrity="sha512-rdhY3cbXURo13l/WU9VlaRyaIYeJ/KBakckXIvJNAQde8DgpOmE+eZf7ha4vdqVjTtwQt69bD2wH2LXob/LB7Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    hljs.highlightAll();
+  </script>
+  <script type="text/javascript"></script>
+</body>
+
 </html>

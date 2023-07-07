@@ -6,7 +6,8 @@
       <div class="card-body">
         <div class="d-flex align-items-center">
           <div class="ms-3">
-            <h6 class="fw-bold h5 mb-1"><a href="{% url 'category:child_categories' child_category.id %}">{{ child_category.title }}</a></h6>
+            <h6 class="fw-bold h5 mb-1"><a
+                href="{% url 'category:child_categories' child_category.id %}">{{child_category.title }}</a></h6>
             <p class="text-muted mb-0">{{ child_category.parent.title }}</p>
           </div>
         </div>

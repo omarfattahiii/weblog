@@ -11,7 +11,7 @@ class Configuration(models.Model):
     meta_author = models.TextField(blank=True, null=True)
     meta_revised = models.DateTimeField(auto_now=True, blank=True, null=True)
     favicon = models.ImageField(
-        upload_to="weblog/configuration/favicon", blank=False, null=False)
+        upload_to="weblog/configuration/favicon", blank=True, null=True)
 
     class Meta:
         verbose_name = "WebLog Configuration"

@@ -12,15 +12,8 @@
 
       {% for option in poll_option %}
       <div class="form-check mb-2">
-        <input
-          class="form-check-input"
-          type="radio"
-          name="{{ poll.title }}"
-          id="{{ option.id }}"
-        />
-        <label class="form-check-label fw-bold" for="{{ option.id }}"
-          >{{ option.title }}</label
-        >
+        <input class="form-check-input" type="radio" name="{{ poll.title }}" id="{{ option.id }}" />
+        <label class="form-check-label fw-bold" for="{{ option.id }}">{{ option.title }}</label>
       </div>
       {% endfor %}
       <div class="card-footer text-center">
@@ -35,15 +28,7 @@
     <div class="card-text">
       {% for option in poll_option %}
       <div class="progress mb-3" style="height: 20px">
-        <div
-          class="progress-bar"
-          role="progressbar"
-          style="width: {{ option.id }}0%"
-          aria-valuenow="25"
-          aria-valuemin="0"
-          aria-valuemax="100"
-          id="percent"
-        ></div>
+        <div class="progress-bar" role="progressbar" style="width: {{ option.id }}0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" id="percent"></div>
         <label for="precent" class="px-1">{{ option.title }}</label>
       </div>
       {% endfor %}
