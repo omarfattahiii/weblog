@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Polls, PollsOption
+from .models import Polls, PollsOption, Vote
 
 
 def polls(request):

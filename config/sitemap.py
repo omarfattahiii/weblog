@@ -14,7 +14,7 @@ class SinglePostSitemap(Sitemap):
         return obj.up_date
 
     def location(self, obj):
-        return reverse('post:single_posts_detail', kwargs={'slug': obj.slug})
+        return reverse('post:single_posts_detail', kwargs={'id': obj.id})
 
 
 class SeriePostSitemap(Sitemap):
@@ -28,4 +28,4 @@ class SeriePostSitemap(Sitemap):
         return obj.up_date
 
     def location(self, obj):
-        return reverse('post:serie_posts_detail', kwargs={'slug': obj.slug})
+        return reverse('post:serie_posts_detail', kwargs={'id': obj.id})

@@ -39,7 +39,7 @@
       <p class="d-flex justify-content-between p-0 m-0">
         <span class="fw-bolder">دسته بندی</span>
         <time class="fw-light">
-          {% for category in object.category.all %} <span class="badge badge-dark">{{ category.title }}</span> {% endfor %}
+          {% for category in object.category.all %} <span class="badge badge-dark"><a href="{% url 'category:child_categories' category.id  %}" class="text-white">{{ category.title }}</a></span> {% endfor %}
         </time>
       </p>
       <p class="d-flex justify-content-between p-0 m-0">

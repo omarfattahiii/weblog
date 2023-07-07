@@ -25,7 +25,7 @@
       <p>
         <strong>دسته بندی</strong>
         {% for category in post.category.all %}
-        <span class="badge text-white bg-dark">{{ category.title }}</span>
+        <span class="badge text-white bg-dark"><a href="{% url 'category:child_categories' category.id  %}" class="text-white">{{ category.title }}</a></span>
         {% endfor %}
       </p>
       <p>
