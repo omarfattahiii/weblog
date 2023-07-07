@@ -1,11 +1,55 @@
-<div class="last_poll pb-4 pt-4 text-white border-b-2">
-  <p class="text-2xl pb-5">نظرسنجی جدید</p>
-  <form action="" method="post">
-    <h1>{{ poll }}</h1>
-    {% for option in poll_option %}
-    <input type="radio" name="last_poll" id="{{ option.id }}" />
-    <label for="{{ option.id }}">{{ option.title }}</label> <br />
-    {% endfor %}
-    <input class="cursor-pointer" type="submit" value="ثبت نظر" />
-  </form>
+<div class="card mb-3">
+  <div class="card-body">
+    <div class="text-center">
+      <p class="h5">آخرین نظرسنجی</p>
+    </div>
+
+    <hr />
+
+    <form class="px-4" action="" method="post">
+      {% csrf_token %}
+      <h1 class="text-center h4"><strong>{{ poll.title }}</strong></h1>
+
+      {% for option in poll_option %}
+      <div class="form-check mb-2">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="{{ poll.title }}"
+          id="{{ option.id }}"
+        />
+        <label class="form-check-label fw-bold" for="{{ option.id }}"
+          >{{ option.title }}</label
+        >
+      </div>
+      {% endfor %}
+      <div class="card-footer text-center">
+        <button type="submit" class="btn btn-warning fs-6">ثبت</button>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="card text-center mb-3">
+  <div class="card-header">«رتبه بر اساس ترتیب»</div>
+  <div class="card-body">
+    <div class="card-text">
+      {% for option in poll_option %}
+      <div class="progress mb-3" style="height: 20px">
+        <div
+          class="progress-bar"
+          role="progressbar"
+          style="width: {{ option.id }}0%"
+          aria-valuenow="25"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          id="percent"
+        ></div>
+        <label for="precent" class="px-1">{{ option.title }}</label>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="card-footer text-muted">
+    <p><strong>نتیجه </strong> سی پلاس پلاس</p>
+  </div>
 </div>

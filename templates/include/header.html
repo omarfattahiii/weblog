@@ -1,18 +1,21 @@
 <header>
-  <nav class="navbar navbar-expand navbar-light bg-white">
+  <nav
+    class="navbar navbar-expand navbar-light user-select-none p-0 m-0 bg-white"
+  >
     <div class="container-fluid">
       <div>
         <ul class="navbar-nav mb-2 mb-lg-0">
           {% if user.is_authenticated %}
           <li class="nav-item">
-            <a class="nav-link">{{ request.user.username }}</a>
+            <a class="nav-link">پروفایل</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'config:signout' %}"
-              >خروج از حساب</a
-            >
-          </li>
-          {% else %}
+          {% endif %}
+        </ul>
+      </div>
+
+      <div>
+        <ul class="navbar-nav mb-2 mb-lg-0">
+          {% if not user.is_authenticated %}
           <li class="nav-item">
             <a
               class="nav-link"
@@ -23,6 +26,18 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'config:signup' %}">ثبت حساب</a>
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+
+      <div>
+        <ul class="navbar-nav mb-2 mb-lg-0">
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'config:signout' %}"
+              >خروج از حساب</a
+            >
           </li>
           {% endif %} {% if request.user.is_superuser %}
           <li class="nav-item">
@@ -35,7 +50,9 @@
   </nav>
 </header>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top mb-5">
+<nav
+  class="navbar navbar-expand-lg navbar-light bg-light user-select-none shadow-3-strong sticky-top mb-5"
+>
   <div class="container-fluid">
     <button
       class="navbar-toggler"
@@ -93,32 +110,14 @@
       </ul>
     </div>
 
-    <div class="dropdown">
-      <a
-        class="text-reset me-3 dropdown-toggle hidden-arrow"
-        href="#"
-        id="navbarDropdownMenuLink"
-        role="button"
-        data-mdb-toggle="dropdown"
-        aria-expanded="false"
-      >
-        <i class="fas fa-bell text-warning fw-bolder h5"></i>
-        <span class="badge rounded-pill badge-notification bg-dark">3</span>
-      </a>
-      <ul
-        class="dropdown-menu dropdown-menu-end"
-        aria-labelledby="navbarDropdownMenuLink"
-      >
-        <li>
-          <a class="dropdown-item" href="#">پایتون، سند رسمی! شروع شد؛</a>
-        </li>
-        <li>
-          <a class="dropdown-item" href="#">روبی! شروع شد</a>
-        </li>
-        <li>
-          <a class="dropdown-item" href="#">خبر اول جدید</a>
-        </li>
-      </ul>
-    </div>
+    <form class="input-group w-auto px-2">
+      <input
+        type="search"
+        class="form-control rounded"
+        placeholder="اینجا جستجو کنید"
+        aria-label="Search"
+        aria-describedby="search-addon"
+      />
+    </form>
   </div>
 </nav>

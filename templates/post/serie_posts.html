@@ -3,44 +3,47 @@
 <p class="fs-1 text-center m-0 text-decoration-underline link-offset-1 fw-bold">
   پست های سریالی
 </p>
-<p
-  class="fs-6 text-center mb-5 link-offset-1 fw-bold"
->
+<p class="fs-6 text-center mb-5 link-offset-1 fw-bold">
   پست ها به ترتیب انتشار لیست شده اند
 </p>
 
-<div class="row">
-  {% for post in objects %}
-  <div
-    class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-4 col-xxl-3 px-1 py-1"
-  >
-    <div class="card">
-      <div class="card-body">
-        <h1 class="card-title fs-3">{{ post.title }}</h1>
-        <hr class="pt-2 pb-2" />
-        <section class="card-subtitle text-body-secondary">
-          <p class="d-flex justify-content-between p-0 m-0">
-            <span class="fw-bolder">انتشار</span>
-            <time class="fw-light"
-              >{{ post.pub_date|to_jalali:'%Y/%m/%d' }}</time
-            >
-          </p>
-          <p class="d-flex justify-content-between p-0 m-0">
-            <span class="fw-bolder">بروزرسانی</span>
-            <time class="fw-light"
-              >{{ post.up_date|to_jalali:'%Y/%m/%d' }}</time
-            >
-          </p>
-          <br />
-        </section>
-        <a
-          href="{% url 'post:serie_posts_detail' post.id %}"
-          class="card-link fw-bolder text-warning"
-          >«شروع خواندن»</a
+{% for post in objects %}
+<div class="card mb-2">
+  <div class="card-body">
+    <h1 class="card-title fs-3">{{ post.title }}</h1>
+    <hr class="pt-2 pb-2" />
+    <section class="card-subtitle text-body-secondary mb-5">
+      <p><strong>توضیح مختصر</strong> {{ post.description|truncatewords:20 }}</p>
+      <p>
+        <strong>انتشار</strong>
+        <time datetime="{{ post.pub_date|date:'Y-m-d H:i:s' }}"
+          >{{ post.pub_date|to_jalali:'%Y/%m/%d' }}</time
         >
-      </div>
-    </div>
+      </p>
+      <p>
+        <strong>بروزرسانی</strong>
+        <time datetime="{{ post.up_date|date:'Y-m-d H:i:s' }}"
+          >{{ post.up_date|to_jalali:'%Y/%m/%d' }}</time
+        >
+      </p>
+      <p>
+        <strong>دسته بندی</strong>
+        {% for category in post.category.all %}
+        <span class="badge text-white bg-dark">{{ category.title }}</span>
+        {% endfor %}
+      </p>
+      <p>
+        <strong>برچسب</strong>
+        {% for tag in post.tag.all %}
+        <span class="badge badge-dark">{{ tag.title }}</span>
+        {% endfor %}
+      </p>
+    </section>
+    <a
+      href="{% url 'post:serie_posts_detail' post.id %}"
+      class="card-link fw-bolder text-warning"
+      >«مطالعه پست»</a
+    >
   </div>
-  {% endfor %}
 </div>
-{% endblock content %}
+{% endfor %} {% endblock content %}

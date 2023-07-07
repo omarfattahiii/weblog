@@ -1,8 +1,26 @@
-<div class="last_single_post pb-4 pt-4 text-white border-b-2">
-  <p class="text-2xl pb-5">ارسالی جدید پست های تکی</p>
-  {% for post in single %}
-  <li>
-    <a href="{% url 'post:single_posts_detail' post.id %}">{{ post.title }}</a>
-  </li>
-  {% endfor %}
+{% load jalali_tags %}
+<div>
+  <ol class="list-group list-group-light list-group-numbered">
+    {% for post in single %}
+    <li
+      class="list-group-item d-flex justify-content-between align-items-start"
+    >
+      <div class="ms-2 me-auto">
+        <div class="fw-bold">
+          <a href="{% url 'post:single_posts_detail' post.id %}"
+            >{{ post.title }}</a
+          >
+        </div>
+        <summary>
+          {{ post.description|truncatewords:10 }}
+        </summary>
+      </div>
+      <span class="badge badge-primary rounded-pill">
+        <time class="fw-light" datetime="{{ post.pub_date|date:'Y-m-d H:i:s' }}"
+          >{{ post.pub_date|to_jalali:'%Y/%m/%d' }}</time
+        >
+      </span>
+    </li>
+    {% endfor %}
+  </ol>
 </div>

@@ -16,18 +16,18 @@
   >
     <div class="card">
       <div class="card-body">
-        <h1 class="card-title fs-3">{{ post.title }}</h1>
+        <h1 class="card-title fs-5 fw-bolder">{{ post.title }}</h1>
         <hr class="pt-2 pb-2" />
         <section class="card-subtitle text-body-secondary">
           <p class="d-flex justify-content-between p-0 m-0">
             <span class="fw-bolder">انتشار</span>
-            <time class="fw-light"
+            <time class="fw-light" datetime="{{ post.pub_date|date:'Y-m-d H:i:s' }}"
               >{{ post.pub_date|to_jalali:'%Y/%m/%d' }}</time
             >
           </p>
           <p class="d-flex justify-content-between p-0 m-0">
             <span class="fw-bolder">بروزرسانی</span>
-            <time class="fw-light"
+            <time class="fw-light" datetime="{{ post.pub_date|date:'Y-m-d H:i:s' }}"
               >{{ post.up_date|to_jalali:'%Y/%m/%d' }}</time
             >
           </p>

@@ -1,0 +1,28 @@
+{% extends "layout.html" %} {% block content %}
+<table
+  class="table table-hover align-middle mb-0 bg-white overflow-scroll"
+>
+  <thead class="bg-light">
+    <tr class="text-center user-select-none">
+      <th scope="col">پست تکی</th>
+      <th scope="col">پست سریالی</th>
+      <th scope="col">آدرس منبع</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for rnc in reference %}
+    <tr>
+      <td>{{ rnc.single_post.title }}</td>
+      <td>{{ rnc.serie_post.title }}</td>
+      <td dir="ltr" class="text-break user-select-all">
+        {{ rnc.url }}
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+  <caption class="user-select-none">
+    <i class="fas fa-level-up fst-italic" aria-hidden="true"></i>
+    <em>منابع استفاده شده در وبلاگ</em>
+  </caption>
+</table>
+{% endblock content %}

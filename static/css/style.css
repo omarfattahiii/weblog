@@ -16,6 +16,12 @@
   background: #000;
 }
 
+/* highlightjs */
+pre code {
+  font-family: "Vazir Code Hack", "consolas";
+  direction: ltr;
+}
+
 /* layout.html */
 * {
   font-family: "Vazir FD-WOL", "Roboto";
